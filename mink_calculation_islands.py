@@ -6,12 +6,14 @@
 # Based on this natural clusters will be found. Their closeness to
 # the shoreline is also visualized.
 #
-# Input:  * islands.shp
-#         * protected_areas.shp
+# Input:         * islands.shp
+#                * protected_areas.shp
 #
 #
-# Output: * visual_zones.shp
-#         * coastline_riskzone.shp
+# Output:        * visual_zones.shp
+#                * coastline_riskzone.shp
+#
+# Prerequisites: * The ESRI ArcPy library
 #
 # ---------------------------------------------------------------------------
 
@@ -50,7 +52,13 @@ def handle_log(contentstring,destination):
 
 ###############################################################
 # Divide and conquer dissolve
-# sub-dissolve based on group size.
+#
+# Specialized sub-dissolve based on group size. Bacause ESRI
+# didn't get it right.
+#
+# Read more about the needs for this function on this page:
+#
+#    http://www.mindland.com/wp/solving-the-arcpy-dissolve/
 #
 def dec_dissolve(file_in, file_out,group_by):
 
