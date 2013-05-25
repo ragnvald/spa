@@ -2,10 +2,18 @@
 
 ###############################################################
 # FUNCTIONS
-
-
-
-
+#
+#
+#   handle_log: Sends a text string to a function which writes to
+#               a file and/or stdout
+#
+#   dissolve:   Per reference to an article on how the ESRI
+#               dissolve functionality can be made better using
+#               the ESRI dissolve functionality.
+#
+#
+#
+#
 
 ###############################################################
 # Function to handle contionous info to user(stdout) and log

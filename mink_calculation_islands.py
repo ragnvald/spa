@@ -54,8 +54,11 @@ county_nr                     = 9
 county_name                   = "nordland"
 
 projectionfile                = "%swgs84_utm_33n.prj" % (path_maps_basis)
+
 coastline                     = "%snorway_coastline.shp" % (path_maps_basis)
+
 islands_all                   = "%sislands_nordland_county.shp" % (path_maps_basis)
+
 areas_protected               = "%snaturvernomrader_utm33.shp" % (path_maps_basis)
 
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
