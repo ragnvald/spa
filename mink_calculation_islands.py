@@ -666,6 +666,7 @@ for row in rows:
 
     # Calculate area for the islands within one of the buffer zones
     to_log               +"---- Initiating zone level area stats"
+
     handle_log(to_log,"stdout,file",path_maps_result)
     to_log     = ""
 
@@ -674,6 +675,10 @@ for row in rows:
 
     # Calculate perimeter for the islands within one of the buffer zones
     to_log               +"---- Initiating izone level slands total perimeter calculation"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.CalculateField_management(zone_islands_areacalc, 'i_perim', '!shape.length@meters!', 'PYTHON')
 
 
@@ -681,10 +686,18 @@ for row in rows:
     # The resulting value is used as update to the
 
     to_log               +"---- Initiating distance to shore calculation"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     #arcpy.Near_analysis(zone_islands_areacalc,coastal_line_risk)
 
 
     to_log               +"---- Iterating through value updates with some tests"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     #Do the area calculation and set the value for eac island selected within one of the buffers
     rows_area = arcpy.UpdateCursor(zone_islands_areacalc)
 
@@ -723,16 +736,24 @@ for row in rows:
     row.setValue("i_mindist",mindistance)
 
 
-    to_file               += " %s \n" % (current_id+1)
-    to_file               += "    Antall øyer          : %s \n" % (count_islands)
-    to_file               += "    Øyenes areal   (da)  : %s \n" % (int(totalarea/1000))
-    to_file               += "    Øyenes omkrets (m)   : %s \n" % (int(totalperim))
-    to_file               += "    Nærmest fastlandet   : %s \n\n\n" % (mindistance)
+    to_log               += " %s \n" % (current_id+1)
+    to_log               += "    Antall øyer          : %s \n" % (count_islands)
+    to_log               += "    Øyenes areal   (da)  : %s \n" % (int(totalarea/1000))
+    to_log               += "    Øyenes omkrets (m)   : %s \n" % (int(totalperim))
+    to_log               += "    Nærmest fastlandet   : %s \n\n\n" % (mindistance)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
 
 
     rows.updateRow(row)
 
     to_log               +"--- Calculated @#%s: Islands %s, Perim %s, distance to shore %s" % (current_id, count_islands, totalperim, current_distance)
+
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
 
     del row_area
