@@ -51,10 +51,13 @@ i                             = 1
 
 county_nr                     = 9
 
-county_name                   = "aust-agder"
+county_name                   = "nordland"
+
 projectionfile                = "%swgs84_utm_33n.prj" % (path_maps_basis)
-coastline                     = "%snorge_fastland_kystlinje.shp" % (path_maps_basis)
-islands_all                   = "%sOyer_AustAgder_100m.shp" % (path_maps_basis)
+coastline                     = "%snorway_coastline.shp" % (path_maps_basis)
+islands_all                   = "%sislands_nordland_county.shp" % (path_maps_basis)
+areas_protected               = "%snaturvernomrader_utm33.shp" % (path_maps_basis)
+
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 log_setting                   = "stdout,file"
@@ -114,13 +117,6 @@ arcpy.CreateFeatureclass_management(path_maps_result, islands_affected_total_nop
 arcpy.DefineProjection_management(islands_affected_total, projectionfile)
 
 islands_affected_total_temp = "%sislands_affected_total_temp.shp" % (path_maps_process)
-
-
-
-# A polygon shapefile with protected areas. One of the object
-# attributes in this calculation is VERNEF_ID. We could use it
-# to filter our protected areas (assets).
-areas_protected = "%snaturvernomrader_utm33.shp" % (path_maps_basis)
 
 
 
