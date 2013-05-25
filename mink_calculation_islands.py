@@ -36,14 +36,40 @@ startTime = datetime.now()
 # Function to handle contionous info to user(stdout) and log
 #
 
-def handle_log(contentstring,destination):
+def handle_log(contentstring,destination, path_maps_result):
+
+    file_log_name        = "log.txt"
 
     if (destination=="stdout,file"):
+
         print contentstring
+
+
+        loggfile = "%s%s" % (path_maps_result,file_log_name)
+
+        current_file    = open(loggfile, 'a+')
+
+        current_file.write(contentstring)
+
+        current_file.closed
+
+
     elif (destination=="stdout"):
+
         print contentstring
+
+
     elif (destination=="file"):
-        print contentstring
+
+        loggfile = "%s%s" % (path_maps_result,file_log_name)
+
+        current_file    = open(loggfile, 'a+')
+
+        current_file.write(contentstring)
+
+        current_file.closed
+
+
     else:
         print ""
 
@@ -60,7 +86,7 @@ def handle_log(contentstring,destination):
 #
 #    http://www.mindland.com/wp/solving-the-arcpy-dissolve/
 #
-def dec_dissolve(file_in, file_out,group_by):
+def dec_dissolve(file_in, file_out, group_by):
 
     count           =  0
     current_min     =  0
@@ -127,14 +153,15 @@ def dec_dissolve(file_in, file_out,group_by):
 ################################################################
 # Define variables
 
+responsible_project           = "Ragnvald Larsen"
 
-path_project                  = "C:/arikiv_temp/minknomore/"
+path_project                  = "C:/mink/"
 
 path_maps_basis               = "%smaps_basis/"   % (path_project)
 path_maps_process             = "%smaps_process/" % (path_project)
 path_maps_result              = "%smaps_result/"  % (path_project)
 
-to_file                       = ""
+to_log                       = ""
 
 log_file                      = "log.txt"
 log_destination               = "stdout,file"
@@ -154,7 +181,6 @@ run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 log_setting                   = "stdout,file"
 
 
-path_maps_result            = "%s%s/" % (path_maps_result,county_nr)
 
 
 ################################################################
@@ -169,7 +195,7 @@ to_log               += " Basis for this calculation:\n"
 to_log               += "\n"
 to_log               += "\n"
 to_log               += "\n"
-to_log               += " Responsible              : Ragnvald Larsen (rla@dirnat.no)"
+to_log               += " Responsible              : %s" % (responsible_project)
 to_log               += "\n"
 to_log               += "\n"
 to_log               += " Buffer distance (meters) : %s \n" % (list_buffer_distance_m)
@@ -179,29 +205,28 @@ to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
 
 
-handle_log(to_file,"stdout,file")
+handle_log(to_log,"stdout,file",path_maps_result)
 
 
 
 # Coastline file
 
-to_file               += "\n"
-to_file               += " Coastline: %s\n" % (coastline)
+to_log               += "\n"
+to_log               += " Coastline: %s\n" % (coastline)
 
-to_file               += "\n"
-to_file               += " Islands file: %s\n" % (islands_all)
+to_log               += "\n"
+to_log               += " Islands file: %s\n" % (islands_all)
 
 number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
-print " Islands in area      : %s" % (number_islands_tostartwith)
-print"\n"
 
-to_file               += "\n"
-to_file               += " Numbeer of islands in this calculation: %s\n" % (number_islands_tostartwith)
+
+to_log               += "\n"
+to_log               += " Numbeer of islands in this calculation: %s\n" % (number_islands_tostartwith)
 
 
 islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
 
-print "- Touch islands_affected_total_temp"
+to_log               +"- Touch islands_affected_total_temp"
 
 islands_affected_total_nopath = "f_%s_islands_affected_total.shp" % (county_nr)
 
@@ -760,14 +785,6 @@ to_file        += "Kjøringen sluttet   : %s \n" % (run_time_end)
 
 
 print to_file
-
-loggfile = "%sberegningslogg.txt" % (path_maps_result)
-
-current_file    = open(loggfile, 'w')
-
-current_file.write(to_file)
-
-current_file.closed
 
 
 
