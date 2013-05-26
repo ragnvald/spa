@@ -6,8 +6,9 @@
 # Based on this natural clusters will be found. Their closeness to
 # the shoreline is also visualized.
 #
-# Input:         * islands.shp
-#                * protected_areas.shp
+# Input:         * your_islands.shp
+#                * your_protected_areas.shp
+#                * your_projection_file.prj
 #
 #
 # Output:        * visual_zones.shp
@@ -773,14 +774,7 @@ del rows
 
 run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
-to_file        += "Kjøringen sluttet   : %s \n" % (run_time_end)
+to_log        += "Calculations ended : %s \n" % (run_time_end)
 
 
-to_log               +to_file
-
-
-
-################################################################
-# We now have a folder with expanding buffers named sislands_buffer_join_[n].shp
-# The bigger the areas covered the more they will bleed together
-#
+handle_log(to_log,"stdout,file",path_maps_result)
