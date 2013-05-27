@@ -25,12 +25,12 @@ def handle_log(contentstring,destination, path_maps_result):
 
     if (destination=="stdout,file"):
 
-        print contentstring
+        print(contentstring)
 
 
         loggfile = "%s%s" % (path_maps_result,file_log_name)
 
-        current_file    = open(loggfile, 'a+')
+        current_file    = open(loggfile, 'a')
 
         current_file.write(contentstring)
 
@@ -39,14 +39,14 @@ def handle_log(contentstring,destination, path_maps_result):
 
     elif (destination=="stdout"):
 
-        print contentstring
+        print(contentstring)
 
 
     elif (destination=="file"):
 
         loggfile = "%s%s" % (path_maps_result,file_log_name)
 
-        current_file    = open(loggfile, 'a+')
+        current_file    = open(loggfile, 'a')
 
         current_file.write(contentstring)
 

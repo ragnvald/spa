@@ -60,7 +60,7 @@ coastline                     = "%snorway_coastline.shp" % (path_maps_basis)
 
 islands_all                   = "%sislands_nordland_county.shp" % (path_maps_basis)
 
-areas_protected               = "%snaturvernomrader_utm33.shp" % (path_maps_basis)
+areas_protected               = "%sprotected_areas.shp" % (path_maps_basis)
 
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
@@ -91,9 +91,14 @@ to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
 
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"file",path_maps_result)
 to_log     = ""
 
+
+to_log               = " Calculation started\n"
+
+handle_log(to_log,"stdout",path_maps_result)
+to_log     = ""
 
 
 # Coastline file
@@ -108,12 +113,15 @@ number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
 
 
 to_log               += "\n"
-to_log               += " Numbeer of islands in this calculation: %s\n" % (number_islands_tostartwith)
+to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
 
 
 islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
 
-to_log               +"- Touch islands_affected_total_temp"
+to_log               +"- Touch islands_affected_total_temp\n"
+
+handle_log(to_log,"file",path_maps_result)
+to_log     = ""
 
 islands_affected_total_nopath = "f_%s_islands_affected_total.shp" % (county_nr)
 
@@ -130,7 +138,7 @@ islands_affected_total_temp = "%sislands_affected_total_temp.shp" % (path_maps_p
 # run throughout
 to_log               +"- Copying all islands to process folder"
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"stdout",path_maps_result)
 to_log     = ""
 
 islands_left        = "%sislands_left.shp" % (path_maps_process)
@@ -574,7 +582,7 @@ rows = arcpy.UpdateCursor(visual_buffer)
 # Also set the zone number.
 to_log               +"-- Update values."
 
-to_file               += " Arealinformasjon per sone angitt i dekar\n"
+to_log               += " Arealinformasjon per sone angitt i dekar\n"
 
 handle_log(to_log,"stdout,file",path_maps_result)
 to_log     = ""
@@ -591,8 +599,8 @@ for row in rows:
     rows.updateRow(row)
 
 
-    to_file               += "\n"
-    to_file               += "   %s: %s \n" % (count, new_area/1000)
+    to_log               += "\n"
+    to_log               += "   %s: %s \n" % (count, new_area/1000)
 
     handle_log(to_log,"stdout,file",path_maps_result)
     to_log     = ""
