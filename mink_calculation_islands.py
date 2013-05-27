@@ -304,7 +304,7 @@ while (number_islands_left < number_islands_left_last):
     handle_log(to_log,"stdout,file",path_maps_result)
     to_log     = ""
 
-    group_dissolve(current_buffer_temp, current_buffer,1000,path_maps_process)
+    group_dissolve(current_buffer_temp, current_buffer,80,path_maps_process)
 
     #arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
 
@@ -542,7 +542,7 @@ to_log     = ""
 
 #arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
 
-group_dissolve(visual_buffer_temp, visual_buffer,1000,path_maps_process)
+group_dissolve(visual_buffer_temp, visual_buffer,80,path_maps_process)
 
 
 # Calculate area for the visual buffer and clean up
@@ -747,12 +747,12 @@ for row in rows:
 
 
     to_log               += " %s \n" % (current_id+1)
-    to_log               += "    Antall øyer          : %s \n" % (count_islands)
-    to_log               += "    Øyenes areal   (da)  : %s \n" % (int(totalarea/1000))
-    to_log               += "    Øyenes omkrets (m)   : %s \n" % (int(totalperim))
-    to_log               += "    Nærmest fastlandet   : %s \n\n\n" % (mindistance)
+    to_log               += "    Number of islands     : %s \n" % (count_islands)
+    to_log               += "    Islands area  (da)    : %s \n" % (int(totalarea/1000))
+    to_log               += "    Islands perimeter (m  : %s \n" % (int(totalperim))
+    to_log               += "    Closest mainlanddet   : %s \n\n\n" % (mindistance)
 
-    handle_log(to_log,"stdout,file",path_maps_result)
+    handle_log(to_log,"file",path_maps_result)
     to_log     = ""
 
 
