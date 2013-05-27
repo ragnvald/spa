@@ -302,9 +302,9 @@ while (number_islands_left < number_islands_left_last):
     handle_log(to_log,"stdout,file",path_maps_result)
     to_log     = ""
 
-    #dec_dissolve(current_buffer_temp, current_buffer,1000)
+    group_dissolve(current_buffer_temp, current_buffer,1000,path_maps_process)
 
-    arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
+    #arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
 
     arcpy.DefineProjection_management(current_buffer, projectionfile)
 
@@ -538,9 +538,9 @@ to_log               +"Normal DISSOLVE"
 handle_log(to_log,"stdout,file",path_maps_result)
 to_log     = ""
 
-arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
+#arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
 
-#dec_dissolve(visual_buffer_temp, visual_buffer,1000)
+group_dissolve(visual_buffer_temp, visual_buffer,1000,path_maps_process)
 
 
 # Calculate area for the visual buffer and clean up
