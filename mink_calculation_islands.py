@@ -6,8 +6,9 @@
 # Based on this natural clusters will be found. Their closeness to
 # the shoreline is also visualized.
 #
-# Input:         * islands.shp
-#                * protected_areas.shp
+# Input:         * your_islands.shp
+#                * your_protected_areas.shp
+#                * your_projection_file.prj
 #
 #
 # Output:        * visual_zones.shp
@@ -22,105 +23,7 @@
 import arcpy, os
 from datetime import datetime,date,time
 from time import gmtime, strftime, localtime
-
-startTime = datetime.now()
-
-###############################################################
-# FUNCTIONS
-
-
-
-
-
-###############################################################
-# Function to handle contionous info to user(stdout) and log
-#
-
-def handle_log(contentstring,destination):
-
-    if (destination=="stdout,file"):
-        print contentstring
-    elif (destination=="stdout"):
-        print contentstring
-    elif (destination=="file"):
-        print contentstring
-    else:
-        print ""
-
-
-
-
-###############################################################
-# Divide and conquer dissolve
-#
-# Specialized sub-dissolve based on group size. Bacause ESRI
-# didn't get it right.
-#
-# Read more about the needs for this function on this page:
-#
-#    http://www.mindland.com/wp/solving-the-arcpy-dissolve/
-#
-def dec_dissolve(file_in, file_out,group_by):
-
-    count           =  0
-    current_min     =  0
-    current_max     =  group_by
-    joinstring      =  []
-
-
-    features_total    =  int(arcpy.GetCount_management(file_in).getOutput(0))
-
-
-    while (current_max < (features_total+group_by)):
-
-        resulting_file  = "%sbuffer_result_%s.shp" % (path_maps_basis,count)
-
-        where_clause    = '"FID"> %s AND "FID" <= %s' %(current_min,current_max)
-
-        arcpy.Select_analysis(file_in, resulting_file, where_clause)
-
-
-        resulting_file_d = "%sbuffer_result_d_%s.shp" % (path_maps_basis,count)
-
-        arcpy.Dissolve_management(resulting_file, resulting_file_d,"","","SINGLE_PART","")
-
-        # delete temporary files
-        arcpy.Delete_management(resulting_file)
-
-
-        joinstring.append(resulting_file_d)
-
-        current_min = group_by*count
-        current_max = current_min + group_by
-
-        count +=1
-
-
-    resultbuffer = "%sresultbuffer.shp" % (path_maps_basis)
-
-    arcpy.Merge_management(joinstring, resultbuffer,"")
-
-    # delete temporary files
-    for shapefile in joinstring:
-
-        arcpy.Delete_management(shapefile)
-
-
-    arcpy.Dissolve_management(resultbuffer, file_out,"","","SINGLE_PART","")
-
-
-    # delete temporary files
-    arcpy.Delete_management(resultbuffer)
-
-
-
-    # Clean up destination folders
-    # for files in os.walk(path_maps_process, topdown=False):
-    #    for name in files:
-    #        print name
-    #        os.remove(os.path.join(path_maps_process, name))
-
-
+from mink_lib import *
 
 
 
@@ -128,13 +31,17 @@ def dec_dissolve(file_in, file_out,group_by):
 # Define variables
 
 
-path_project                  = "C:/arikiv_temp/minknomore/"
+startTime = datetime.now()
+
+responsible_project           = "Ragnvald Larsen"
+
+path_project                  = "C:/mink/"
 
 path_maps_basis               = "%smaps_basis/"   % (path_project)
 path_maps_process             = "%smaps_process/" % (path_project)
 path_maps_result              = "%smaps_result/"  % (path_project)
 
-to_file                       = ""
+to_log                       = ""
 
 log_file                      = "log.txt"
 log_destination               = "stdout,file"
@@ -145,16 +52,21 @@ i                             = 1
 
 county_nr                     = 9
 
-county_name                   = "aust-agder"
+county_name                   = "nordland"
+
 projectionfile                = "%swgs84_utm_33n.prj" % (path_maps_basis)
-coastline                     = "%snorge_fastland_kystlinje.shp" % (path_maps_basis)
-islands_all                   = "%sOyer_AustAgder_100m.shp" % (path_maps_basis)
+
+coastline                     = "%snorway_coastline.shp" % (path_maps_basis)
+
+islands_all                   = "%sislands_nordland_county.shp" % (path_maps_basis)
+
+areas_protected               = "%sprotected_areas.shp" % (path_maps_basis)
+
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 log_setting                   = "stdout,file"
 
 
-path_maps_result            = "%s%s/" % (path_maps_result,county_nr)
 
 
 ################################################################
@@ -169,7 +81,7 @@ to_log               += " Basis for this calculation:\n"
 to_log               += "\n"
 to_log               += "\n"
 to_log               += "\n"
-to_log               += " Responsible              : Ragnvald Larsen (rla@dirnat.no)"
+to_log               += " Responsible              : %s" % (responsible_project)
 to_log               += "\n"
 to_log               += "\n"
 to_log               += " Buffer distance (meters) : %s \n" % (list_buffer_distance_m)
@@ -179,29 +91,39 @@ to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
 
 
-handle_log(to_file,"stdout,file")
+handle_log(to_log,"file",path_maps_result)
+to_log     = ""
 
+
+to_log                = " Islands calculation\n"
+to_log               += " \n"
+to_log               += " Calculation started\n"
+
+handle_log(to_log,"stdout",path_maps_result)
+to_log     = ""
 
 
 # Coastline file
 
-to_file               += "\n"
-to_file               += " Coastline: %s\n" % (coastline)
+to_log               += "\n"
+to_log               += " Coastline: %s\n" % (coastline)
 
-to_file               += "\n"
-to_file               += " Islands file: %s\n" % (islands_all)
+to_log               += "\n"
+to_log               += " Islands file: %s\n" % (islands_all)
 
 number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
-print " Islands in area      : %s" % (number_islands_tostartwith)
-print"\n"
 
-to_file               += "\n"
-to_file               += " Numbeer of islands in this calculation: %s\n" % (number_islands_tostartwith)
+
+to_log               += "\n"
+to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
 
 
 islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
 
-print "- Touch islands_affected_total_temp"
+to_log               +"- Touch islands_affected_total_temp\n"
+
+handle_log(to_log,"file",path_maps_result)
+to_log     = ""
 
 islands_affected_total_nopath = "f_%s_islands_affected_total.shp" % (county_nr)
 
@@ -211,23 +133,16 @@ arcpy.DefineProjection_management(islands_affected_total, projectionfile)
 islands_affected_total_temp = "%sislands_affected_total_temp.shp" % (path_maps_process)
 
 
-# clip the coastal area to a subset to ease the distance calculations later in the procedure
-
-
-
-
-# A polygon shapefile with protected areas. One of the object
-# attributes in this calculation is VERNEF_ID. We could use it
-# to filter our protected areas (assets).
-areas_protected = "%snaturvernomrader_utm33.shp" % (path_maps_basis)
-
-
 
 # Copy all islands to process folder where a file will keep all
 # files not affected by the evaluation. Through our calculation
 # we will remove islands from this file until our iterations has
 # run throughout
-print "- Copying all islands to process folder"
+to_log               +"- Copying all islands to process folder"
+
+handle_log(to_log,"stdout",path_maps_result)
+to_log     = ""
+
 islands_left        = "%sislands_left.shp" % (path_maps_process)
 
 arcpy.Copy_management(islands_all, islands_left)
@@ -239,7 +154,11 @@ arcpy.DefineProjection_management(islands_left, projectionfile)
 # Join the protected areas with the islands. Our target objects
 # are the islands, so whatever joins we get with the protected
 # areas will add up in the Join_Count variable
-print "- Joining protected areas and islands"
+to_log               +"- Joining protected areas and islands"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 islands_affected_joined = "%sislands_affected_joined.shp" % (path_maps_process)
 arcpy.SpatialJoin_analysis(islands_left, areas_protected, islands_affected_joined)
 
@@ -247,14 +166,22 @@ arcpy.SpatialJoin_analysis(islands_left, areas_protected, islands_affected_joine
 # Select all islands which are overlapped with one or more protected areas.
 # Deposit the joins in a new file (islands_affected).
 #
-print "- Creating a shapefile representing islands with protection status"
+to_log               +"- Creating a shapefile representing islands with protection status"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 islands_affected     = "%sislands_affected.shp" % (path_maps_process)
 where_clause         = '"Join_Count" > 0'
 arcpy.Select_analysis(islands_affected_joined, islands_affected, where_clause)
 
 
 # Clean up: Delete temporary joined file
-print "- Deleting temporary join file"
+to_log               +"- Deleting temporary join file"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 arcpy.Delete_management(islands_affected_joined)
 
 
@@ -263,7 +190,11 @@ islands_left_new        = "%sislands_left_new.shp" % (path_maps_process)
 # Delete affected islands from our store of non-affected islands
 # The file will be used as a basis for later buffering.
 #
-print "- Erasing protected/affected islands from all islands"
+to_log               +"- Erasing protected/affected islands from all islands"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 arcpy.Erase_analysis(islands_left,islands_affected,islands_left_new)
 arcpy.Delete_management(islands_left)
 arcpy.Copy_management(islands_left_new, islands_left)
@@ -293,10 +224,17 @@ number_islands_left_last = 200000
 
 
 #Fortsettes så lenge det kommer nye øyer inn i beregningen, eller beregningen når land.
-print "- Entering loop for iterations"
+to_log               +"- Entering loop for iterations"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 while (number_islands_left < number_islands_left_last):
 
-    print "-- Starting loop for analysis. Run #%s" % (i)
+    to_log               +"-- Starting loop for analysis. Run #%s" % (i)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
 
     starttimeround = datetime.now()
@@ -315,7 +253,10 @@ while (number_islands_left < number_islands_left_last):
     # Buffer around all islands
     #
     printstring                =  islands_affected[80:]
-    print  "--- Buffering  : [..]%s" % printstring
+    to_log               + "--- Buffering  : [..]%s" % printstring
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
     distanceField              = "%s Meters" % (list_buffer_distance_m)
     sideType                   = ""
@@ -331,7 +272,10 @@ while (number_islands_left < number_islands_left_last):
         # If this is not the first buffer the older buffer is merged with the new buffer
         # This way we will get a full coverage buffer under all hitherto affected islands
 
-        print "--- Making a full size buffer and clean it up. This integrates buffer #%s" % (i)
+        to_log               +"--- Making a full size buffer and clean it up. This integrates buffer #%s" % (i)
+
+        handle_log(to_log,"stdout,file",path_maps_result)
+        to_log     = ""
 
         formeriterator   = i-1
 
@@ -352,18 +296,28 @@ while (number_islands_left < number_islands_left_last):
 
     #Disssolve
     printstring          =  current_buffer_temp[80:]
-    print  "--- Dissolving : [..]%s" % printstring
+    to_log               + "--- Dissolving : [..]%s" % printstring
 
-    print "Normal DISSOLVE"
-    #dec_dissolve(current_buffer_temp, current_buffer,1000)
+    to_log               +"Normal DISSOLVE"
 
-    arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
+    group_dissolve(current_buffer_temp, current_buffer,1000,path_maps_process)
+
+    #arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
 
     arcpy.DefineProjection_management(current_buffer, projectionfile)
 
 
     # Clean up
-    print "--- Deleting temporary buffer file"
+    to_log               +"--- Deleting temporary buffer file"
+
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.Delete_management(current_buffer_temp)
 
 
@@ -379,7 +333,11 @@ while (number_islands_left < number_islands_left_last):
 
 
 
-    print "--- Joining protected areas and islands"
+    to_log               +"--- Joining protected areas and islands"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.SpatialJoin_analysis(islands_left, current_buffer, islands_affected_joined)
 
 
@@ -387,7 +345,11 @@ while (number_islands_left < number_islands_left_last):
     ################################################################
     #Select all islands with more than one protected area status and make a new layer
     #
-    print "--- Creating a shapefile representing islands with protection status"
+    to_log               +"--- Creating a shapefile representing islands with protection status"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     islands_affected        = "%sislands_affected_%s.shp" % (path_maps_process,i)
     where_clause ='"Join_Count" > 0'
     arcpy.Select_analysis(islands_affected_joined, islands_affected, where_clause)
@@ -395,7 +357,11 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Clean up: Delete temporary joined file
-    print "--- Deleting temporary join file"
+    to_log               +"--- Deleting temporary join file"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.Delete_management(islands_affected_joined)
 
     # add identification field to the islands affected
@@ -411,7 +377,10 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Add the new islands to the original one
-    print "--- Merging new islands into islands_affected_total"
+    to_log               +"--- Merging new islands into islands_affected_total"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
 
     arcpy.Merge_management([islands_affected_total, islands_affected], islands_affected_total_temp)
@@ -421,7 +390,11 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Delete affected islands from islands_left
-    print "--- Erasing infected islands from all islands"
+    to_log               +"--- Erasing infected islands from all islands"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.Erase_analysis(islands_left,islands_affected,islands_left_new)
     arcpy.Delete_management(islands_left)
     arcpy.Copy_management(islands_left_new, islands_left)
@@ -436,21 +409,31 @@ while (number_islands_left < number_islands_left_last):
     number_islands_left_last = number_islands_left
     number_islands_left = int(str(arcpy.GetCount_management(islands_left)))
 
-    print "--- Islands left: %s" % (number_islands_left)
+    to_log               +"--- Islands left: %s" % (number_islands_left)
 
-    print "This round took: %s" % (timestamp)
+    to_log               +"This round took: %s" % (timestamp)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
     i+=1
 
-print "--"
-print "-- Iterations has ended"
+to_log               +"--"
+to_log               +"-- Iterations has ended"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 # union for all buffers affected
 
 
 # write to file
-to_file += " Antall øyer som ikke inngår i minkbekjempelsessoner er: %s" % number_islands_left
-to_file               += "\n"
-to_file               += "\n"
+to_log += " Antall øyer som ikke inngår i minkbekjempelsessoner er: %s" % number_islands_left
+to_log               += "\n"
+to_log               += "\n"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
 
 #Start counting again
 starttimeround = datetime.now()
@@ -459,7 +442,11 @@ count=1
 
 unionlist=""
 
-print "-- Merging (union) between all buffer objects"
+to_log               +"-- Merging (union) between all buffer objects"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 while count < i:
 
     unionobject   = "%sbuffer_%s.shp" % (path_maps_process,count)
@@ -488,7 +475,11 @@ count=1
 # Update is_lev_# value with 1
 rows = arcpy.UpdateCursor(full_buffer_temp)
 
-print "-- Adding island level (isl_lev) to the buffer based on respective buffer level values."
+to_log               +"-- Adding island level (isl_lev) to the buffer based on respective buffer level values."
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
+
 for row in rows:
     count   =1
     sumpost = 0
@@ -514,7 +505,7 @@ islands_infested     = "%sislands_in_zones.shp" % (path_maps_result)
 
 islands_affected     = "%sislands_affected.shp" % (path_maps_process)
 
-print "--- Merging affected islands and affected_total to islands_infested.shp"
+to_log               +"--- Merging affected islands and affected_total to islands_infested.shp"
 
 arcpy.Merge_management([islands_affected,islands_affected_total], islands_infested)
 arcpy.DefineProjection_management(islands_infested, projectionfile)
@@ -527,7 +518,7 @@ visual_buffer_temp   = "%svisual_buffer_temp.shp" % (path_maps_process)
 visual_buffer        = "%sf_%s_visual_buffer.shp" % (path_maps_result,county_nr)
 
 printstring          =  visual_buffer[80:]
-print "--- Making visual buffer  : [..]%s" % printstring
+to_log               +"--- Making visual buffer  : [..]%s" % printstring
 
 
 # the visual buffer should be half of the total potential swimming distance
@@ -541,15 +532,17 @@ arcpy.Buffer_analysis(islands_infested, visual_buffer_temp, distanceField, sideT
 
 #Disssolve
 printstring          =  current_buffer_temp[80:]
-print "--- Dissolving : [..]%s" % printstring
-print "--- (This is a long process...)"
+to_log               +"--- Dissolving : [..]%s" % printstring
+to_log               +"--- (This is a long process...)"
 
+to_log               +"Normal DISSOLVE"
 
-print "Normal DISSOLVE"
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
 
-arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
+#arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
 
-#dec_dissolve(visual_buffer_temp, visual_buffer,1000)
+group_dissolve(visual_buffer_temp, visual_buffer,1000,path_maps_process)
 
 
 # Calculate area for the visual buffer and clean up
@@ -589,10 +582,12 @@ rows = arcpy.UpdateCursor(visual_buffer)
 
 # Move current area from F_AREA (don't like capitals) to z_area and delete former.
 # Also set the zone number.
-print "-- Update values."
+to_log               +"-- Update values."
 
+to_log               += " Arealinformasjon per sone angitt i dekar\n"
 
-to_file               += " Arealinformasjon per sone angitt i dekar\n"
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
 
 count=1
 for row in rows:
@@ -606,8 +601,11 @@ for row in rows:
     rows.updateRow(row)
 
 
-    to_file               += "\n"
-    to_file               += "   %s: %s \n" % (count, new_area/1000)
+    to_log               += "\n"
+    to_log               += "   %s: %s \n" % (count, new_area/1000)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
 
     count+=1
@@ -635,21 +633,27 @@ arcpy.Intersect_analysis([[buffer_outer,1], [coastline,2]], coastal_line_risk, "
 # Update is_lev_# value with 1
 rows = arcpy.UpdateCursor(visual_buffer)
 
-print "-- Iterating for value updates"
+to_log               +"-- Iterating for value updates"
 
 
-to_file               += "\n"
-to_file               += "\n"
-to_file               += "\n"
-to_file               += " Informasjon om øyer i de enkelte sonene\n"
-to_file               += "\n"
+to_log               += "\n"
+to_log               += "\n"
+to_log               += "\n"
+to_log               += " Informasjon om øyer i de enkelte sonene\n"
+to_log               += "\n"
+
+handle_log(to_log,"stdout,file",path_maps_result)
+to_log     = ""
 
 current_id = 0
 
 for row in rows:
 
 
-    print "--- Iteration #%s" % (current_id)
+    to_log               +"--- Iteration #%s" % (current_id)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
     visual_buffer_temp      = "%svisual_buffer_temp.shp" % (path_maps_process)
 
@@ -671,23 +675,39 @@ for row in rows:
 
 
     # Calculate area for the islands within one of the buffer zones
-    print "---- Initiating zone level area stats"
+    to_log               +"---- Initiating zone level area stats"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.CalculateAreas_stats(zone_islands_nocalc, zone_islands_areacalc)
 
 
     # Calculate perimeter for the islands within one of the buffer zones
-    print "---- Initiating izone level slands total perimeter calculation"
+    to_log               +"---- Initiating izone level slands total perimeter calculation"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     arcpy.CalculateField_management(zone_islands_areacalc, 'i_perim', '!shape.length@meters!', 'PYTHON')
 
 
     # Calculate distance from any islands within the zone to shore for.
     # The resulting value is used as update to the
 
-    print "---- Initiating distance to shore calculation"
+    to_log               +"---- Initiating distance to shore calculation"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     #arcpy.Near_analysis(zone_islands_areacalc,coastal_line_risk)
 
 
-    print "---- Iterating through value updates with some tests"
+    to_log               +"---- Iterating through value updates with some tests"
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
     #Do the area calculation and set the value for eac island selected within one of the buffers
     rows_area = arcpy.UpdateCursor(zone_islands_areacalc)
 
@@ -726,16 +746,24 @@ for row in rows:
     row.setValue("i_mindist",mindistance)
 
 
-    to_file               += " %s \n" % (current_id+1)
-    to_file               += "    Antall øyer          : %s \n" % (count_islands)
-    to_file               += "    Øyenes areal   (da)  : %s \n" % (int(totalarea/1000))
-    to_file               += "    Øyenes omkrets (m)   : %s \n" % (int(totalperim))
-    to_file               += "    Nærmest fastlandet   : %s \n\n\n" % (mindistance)
+    to_log               += " %s \n" % (current_id+1)
+    to_log               += "    Antall øyer          : %s \n" % (count_islands)
+    to_log               += "    Øyenes areal   (da)  : %s \n" % (int(totalarea/1000))
+    to_log               += "    Øyenes omkrets (m)   : %s \n" % (int(totalperim))
+    to_log               += "    Nærmest fastlandet   : %s \n\n\n" % (mindistance)
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
+
 
 
     rows.updateRow(row)
 
-    print "--- Calculated @#%s: Islands %s, Perim %s, distance to shore %s" % (current_id, count_islands, totalperim, current_distance)
+    to_log               +"--- Calculated @#%s: Islands %s, Perim %s, distance to shore %s" % (current_id, count_islands, totalperim, current_distance)
+
+
+    handle_log(to_log,"stdout,file",path_maps_result)
+    to_log     = ""
 
 
     del row_area
@@ -756,22 +784,12 @@ del rows
 
 run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
-to_file        += "Kjøringen sluttet   : %s \n" % (run_time_end)
+to_log        += "Calculations ended : %s \n" % (run_time_end)
 
 
-print to_file
-
-loggfile = "%sberegningslogg.txt" % (path_maps_result)
-
-current_file    = open(loggfile, 'w')
-
-current_file.write(to_file)
-
-current_file.closed
+handle_log(to_log,"stdout,file",path_maps_result)
 
 
-
-################################################################
-# We now have a folder with expanding buffers named sislands_buffer_join_[n].shp
-# The bigger the areas covered the more they will bleed together
-#
+#Todo: Add cleanup removing files from the processing. Make it optional
+#      so that users may choose to keep the files. Could be usefull
+#      for visualisation.
