@@ -95,7 +95,9 @@ handle_log(to_log,"file",path_maps_result)
 to_log     = ""
 
 
-to_log               = " Calculation started\n"
+to_log                = " Islands calculation\n"
+to_log               += " \n"
+to_log               += " Calculation started\n"
 
 handle_log(to_log,"stdout",path_maps_result)
 to_log     = ""
@@ -786,3 +788,8 @@ to_log        += "Calculations ended : %s \n" % (run_time_end)
 
 
 handle_log(to_log,"stdout,file",path_maps_result)
+
+
+#Todo: Add cleanup removing files from the processing. Make it optional
+#      so that users may choose to keep the files. Could be usefull
+#      for visualisation.

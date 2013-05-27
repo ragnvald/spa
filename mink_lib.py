@@ -15,6 +15,9 @@
 #
 #
 
+
+import arcpy, os
+
 ###############################################################
 # Function to handle contionous info to user(stdout) and log
 #
@@ -94,11 +97,8 @@ def group_dissolve(file_in, file_out,group_by,path_maps_temp):
         resulting_file_d = "%sbuffer_result_d_%s.shp" % (path_maps_temp,count)
 
 
-        start_part = time.time()
 
         arcpy.Dissolve_management(resulting_file, resulting_file_d,"","","SINGLE_PART","")
-
-        timer_dissolve+= (time.time()-start_part)
 
 
         # delete temporary files
@@ -115,18 +115,11 @@ def group_dissolve(file_in, file_out,group_by,path_maps_temp):
 
 
 
-    sys.stdout.write(" ")
-
     resultbuffer = "%sresultbuffer_%s.shp" % (path_maps_temp, group_by)
 
 
-    start_full = time.time()
 
     arcpy.Merge_management(joinstring, resultbuffer,"")
-
-    timer_dissolve += (time.time()-start_full)
-
-
 
 
     # delete temporary files
@@ -135,17 +128,7 @@ def group_dissolve(file_in, file_out,group_by,path_maps_temp):
         arcpy.Delete_management(shapefile)
 
 
-    start_full = time.time()
-
     arcpy.Dissolve_management(resultbuffer, file_out,"","","SINGLE_PART","")
-
-    timer_dissolve += (time.time()-start_full)
-
-
-    sys.stdout.write(str(timer_dissolve))
-
-    sys.stdout.write("-")
-
 
 
     # delete temporary files
