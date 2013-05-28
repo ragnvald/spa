@@ -58,9 +58,9 @@ projectionfile                = "%swgs84_utm_33n.prj" % (path_maps_basis)
 
 coastline                     = "%snorway_coastline.shp" % (path_maps_basis)
 
-islands_all                   = "%sislands_nordland_county.shp" % (path_maps_basis)
+islands_all                   = "%sislands_nordland_county_s.shp" % (path_maps_basis)
 
-areas_protected               = "%sprotected_areas.shp" % (path_maps_basis)
+areas_protected               = "%sprotected_areas_s.shp" % (path_maps_basis)
 
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
@@ -86,7 +86,7 @@ to_log               += "\n"
 to_log               += "\n"
 to_log               += " Buffer distance (meters) : %s \n" % (list_buffer_distance_m)
 to_log               += "\n"
-to_log               += " County                    : %s (nr: %s) \n" % (county_name, county_nr)
+to_log               += " County                   : %s (nr: %s) \n" % (county_name, county_nr)
 to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
 
@@ -428,11 +428,11 @@ to_log     = ""
 
 
 # write to file
-to_log += " Antall øyer som ikke inngår i minkbekjempelsessoner er: %s" % number_islands_left
+to_log += " Number of islands not in any of the eradication zones are: %s" % number_islands_left
 to_log               += "\n"
 to_log               += "\n"
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"file",path_maps_result)
 to_log     = ""
 
 #Start counting again
@@ -444,7 +444,7 @@ unionlist=""
 
 to_log               +"-- Merging (union) between all buffer objects"
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"stdout",path_maps_result)
 to_log     = ""
 
 while count < i:
@@ -477,7 +477,7 @@ rows = arcpy.UpdateCursor(full_buffer_temp)
 
 to_log               +"-- Adding island level (isl_lev) to the buffer based on respective buffer level values."
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"stdout",path_maps_result)
 to_log     = ""
 
 for row in rows:
@@ -505,7 +505,6 @@ islands_infested     = "%sislands_in_zones.shp" % (path_maps_result)
 
 islands_affected     = "%sislands_affected.shp" % (path_maps_process)
 
-to_log               +"--- Merging affected islands and affected_total to islands_infested.shp"
 
 arcpy.Merge_management([islands_affected,islands_affected_total], islands_infested)
 arcpy.DefineProjection_management(islands_infested, projectionfile)
@@ -516,9 +515,6 @@ visual_buffer_temp   = "%svisual_buffer_temp.shp" % (path_maps_process)
 
 
 visual_buffer        = "%sf_%s_visual_buffer.shp" % (path_maps_result,county_nr)
-
-printstring          =  visual_buffer[80:]
-to_log               +"--- Making visual buffer  : [..]%s" % printstring
 
 
 # the visual buffer should be half of the total potential swimming distance
@@ -531,14 +527,6 @@ arcpy.Buffer_analysis(islands_infested, visual_buffer_temp, distanceField, sideT
 
 
 #Disssolve
-printstring          =  current_buffer_temp[80:]
-to_log               +"--- Dissolving : [..]%s" % printstring
-to_log               +"--- (This is a long process...)"
-
-to_log               +"Normal DISSOLVE"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 #arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
 
