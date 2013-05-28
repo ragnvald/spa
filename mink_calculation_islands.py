@@ -570,11 +570,11 @@ rows = arcpy.UpdateCursor(visual_buffer)
 
 # Move current area from F_AREA (don't like capitals) to z_area and delete former.
 # Also set the zone number.
-to_log               +"-- Update values."
+to_log               +"-- Updating values."
 
-to_log               += " Arealinformasjon per sone angitt i dekar\n"
+to_log               += " Area information per zone (da)\n"
 
-handle_log(to_log,"stdout,file",path_maps_result)
+handle_log(to_log,"file",path_maps_result)
 to_log     = ""
 
 count=1
@@ -589,7 +589,6 @@ for row in rows:
     rows.updateRow(row)
 
 
-    to_log               += "\n"
     to_log               += "   %s: %s \n" % (count, new_area/1000)
 
     handle_log(to_log,"stdout,file",path_maps_result)
@@ -665,7 +664,7 @@ for row in rows:
     # Calculate area for the islands within one of the buffer zones
     to_log               +"---- Initiating zone level area stats"
 
-    handle_log(to_log,"stdout,file",path_maps_result)
+    handle_log(to_log,"stdout",path_maps_result)
     to_log     = ""
 
     arcpy.CalculateAreas_stats(zone_islands_nocalc, zone_islands_areacalc)
@@ -674,7 +673,7 @@ for row in rows:
     # Calculate perimeter for the islands within one of the buffer zones
     to_log               +"---- Initiating izone level slands total perimeter calculation"
 
-    handle_log(to_log,"stdout,file",path_maps_result)
+    handle_log(to_log,"stdout",path_maps_result)
     to_log     = ""
 
     arcpy.CalculateField_management(zone_islands_areacalc, 'i_perim', '!shape.length@meters!', 'PYTHON')
@@ -693,7 +692,7 @@ for row in rows:
 
     to_log               +"---- Iterating through value updates with some tests"
 
-    handle_log(to_log,"stdout,file",path_maps_result)
+    handle_log(to_log,"stdout",path_maps_result)
     to_log     = ""
 
     #Do the area calculation and set the value for eac island selected within one of the buffers
