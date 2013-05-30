@@ -113,17 +113,15 @@ to_log               += " Islands file: %s\n" % (islands_all)
 
 number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
 
+islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
 
 to_log               += "\n"
 to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
-
-
-islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
-
 to_log               +"- Touch islands_affected_total_temp\n"
 
 handle_log(to_log,"file",path_maps_result)
 to_log     = ""
+
 
 islands_affected_total_nopath = "f_%s_islands_affected_total.shp" % (county_nr)
 
@@ -606,12 +604,6 @@ del row
 
 
 
-#create the coastline risk zone - too early?
-buffer_outer        = "%sbuffer_%s.shp"                % (path_maps_process,i-1)
-coastal_line_risk   = "%sf_%s_coastal_riskline.shp"    % (path_maps_result,county_nr)
-
-arcpy.Intersect_analysis([[buffer_outer,1], [coastline,2]], coastal_line_risk, "ALL", "", "LINE")
-
 
 
 # Calculate area and perimeter for islands within each visual buffer areas
@@ -767,6 +759,28 @@ for row in rows:
 
 del row
 del rows
+
+
+
+#create the coastline risk zone based on an extended buffer outside the published buffer
+buffer_outer                   = "%sf_%s_visual_buffer.shp"      % (path_maps_result,county_nr)
+
+
+distanceField                  = "%s Meters" % (int(list_buffer_distance_m/2))
+sideType                       = ""
+endType                        = ""
+dissolveType                   = "NONE"
+dissolveField                  = ""
+
+
+buffer_outer_extra   = "%svisual_buffer_ekstra.shp" % (path_maps_process)
+
+arcpy.Buffer_analysis(buffer_outer, buffer_outer_extra, distanceField, sideType, endType, dissolveType, dissolveField)
+
+
+coastal_line_risk   = "%sf_%s_coastal_riskline.shp"    % (path_maps_result,county_nr)
+
+arcpy.Intersect_analysis([[buffer_outer_extra,1], [coastline,2]], coastal_line_risk, "ALL", "", "LINE")
 
 
 run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
