@@ -761,33 +761,34 @@ del row
 del rows
 
 
-
-#create the coastline risk zone based on an extended buffer outside the published buffer
+##############################################################################################
+#
+# Create the coastline risk zone based on an extended buffer outside the published buffer
+#
 buffer_outer                   = "%sf_%s_visual_buffer.shp"      % (path_maps_result,county_nr)
 
 
+#Extend visual buffer to full buffer
+#
 distanceField                  = "%s Meters" % (int(list_buffer_distance_m/2))
 sideType                       = ""
 endType                        = ""
 dissolveType                   = "NONE"
 dissolveField                  = ""
-
-
 buffer_outer_extra   = "%svisual_buffer_ekstra.shp" % (path_maps_process)
-
 arcpy.Buffer_analysis(buffer_outer, buffer_outer_extra, distanceField, sideType, endType, dissolveType, dissolveField)
 
 
+#Calculate risk line
+#
 coastal_line_risk   = "%sf_%s_coastal_riskline.shp"    % (path_maps_result,county_nr)
-
 arcpy.Intersect_analysis([[buffer_outer_extra,1], [coastline,2]], coastal_line_risk, "ALL", "", "LINE")
 
 
+#
 run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 to_log        += "Calculations ended : %s \n" % (run_time_end)
-
-
 handle_log(to_log,"stdout,file",path_maps_result)
 
 
