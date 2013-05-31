@@ -28,6 +28,7 @@ from mink_lib import *
 
 
 ################################################################
+#
 # Define variables
 
 
@@ -69,8 +70,10 @@ log_setting                   = "stdout,file"
 
 
 
+
 ################################################################
 #
+# Information to log
 
 to_log               += "Calculation of zones suitable for decimation of american mink\n"
 to_log               += "#############################################################\n\n\n"
@@ -89,30 +92,24 @@ to_log               += "\n"
 to_log               += " County                   : %s (nr: %s) \n" % (county_name, county_nr)
 to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
-
-
-handle_log(to_log,"file",path_maps_result)
-to_log     = ""
-
-
 to_log                = " Islands calculation\n"
 to_log               += " \n"
 to_log               += " Calculation started\n"
+to_log               += "\n"
+to_log               += " Coastline: %s\n" % (coastline)
+to_log               += "\n"
+to_log               += " Islands file: %s\n" % (islands_all)
 
 handle_log(to_log,"stdout",path_maps_result)
 to_log     = ""
 
 
-# Coastline file
 
-to_log               += "\n"
-to_log               += " Coastline: %s\n" % (coastline)
-
-to_log               += "\n"
-to_log               += " Islands file: %s\n" % (islands_all)
+################################################################
+#
+# Information to log
 
 number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
-
 islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
 
 to_log               += "\n"
@@ -129,33 +126,22 @@ arcpy.CreateFeatureclass_management(path_maps_result, islands_affected_total_nop
 arcpy.DefineProjection_management(islands_affected_total, projectionfile)
 
 islands_affected_total_temp = "%sislands_affected_total_temp.shp" % (path_maps_process)
-
-
+islands_left        = "%sislands_left.shp" % (path_maps_process)
 
 # Copy all islands to process folder where a file will keep all
 # files not affected by the evaluation. Through our calculation
 # we will remove islands from this file until our iterations has
 # run throughout
-to_log               +"- Copying all islands to process folder"
 
-handle_log(to_log,"stdout",path_maps_result)
-to_log     = ""
-
-islands_left        = "%sislands_left.shp" % (path_maps_process)
 
 arcpy.Copy_management(islands_all, islands_left)
 
 arcpy.DefineProjection_management(islands_left, projectionfile)
 
 
-
 # Join the protected areas with the islands. Our target objects
 # are the islands, so whatever joins we get with the protected
 # areas will add up in the Join_Count variable
-to_log               +"- Joining protected areas and islands"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 islands_affected_joined = "%sislands_affected_joined.shp" % (path_maps_process)
 arcpy.SpatialJoin_analysis(islands_left, areas_protected, islands_affected_joined)
@@ -163,11 +149,6 @@ arcpy.SpatialJoin_analysis(islands_left, areas_protected, islands_affected_joine
 
 # Select all islands which are overlapped with one or more protected areas.
 # Deposit the joins in a new file (islands_affected).
-#
-to_log               +"- Creating a shapefile representing islands with protection status"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 islands_affected     = "%sislands_affected.shp" % (path_maps_process)
 where_clause         = '"Join_Count" > 0'
@@ -175,23 +156,15 @@ arcpy.Select_analysis(islands_affected_joined, islands_affected, where_clause)
 
 
 # Clean up: Delete temporary joined file
-to_log               +"- Deleting temporary join file"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 arcpy.Delete_management(islands_affected_joined)
 
-
 islands_left_new        = "%sislands_left_new.shp" % (path_maps_process)
+
 
 # Delete affected islands from our store of non-affected islands
 # The file will be used as a basis for later buffering.
 #
-to_log               +"- Erasing protected/affected islands from all islands"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 arcpy.Erase_analysis(islands_left,islands_affected,islands_left_new)
 arcpy.Delete_management(islands_left)
@@ -199,7 +172,6 @@ arcpy.Copy_management(islands_left_new, islands_left)
 arcpy.Delete_management(islands_left_new)
 
 arcpy.DefineProjection_management(islands_left, projectionfile)
-
 
 
 
@@ -790,8 +762,3 @@ run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 to_log        += "Calculations ended : %s \n" % (run_time_end)
 handle_log(to_log,"stdout,file",path_maps_result)
-
-
-#Todo: Add cleanup removing files from the processing. Make it optional
-#      so that users may choose to keep the files. Could be usefull
-#      for visualisation.
