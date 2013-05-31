@@ -22,11 +22,8 @@ import arcpy, os
 # Function to handle contionous info to user(stdout) and log
 #
 
-def handle_log(contentstring,destination, path_maps_result):
+def handle_log(contentstring,path_maps_result, file_log_name):
 
-    file_log_name        = "log.txt"
-
-    if (destination=="stdout,file"):
 
         print(contentstring)
 
@@ -39,25 +36,6 @@ def handle_log(contentstring,destination, path_maps_result):
 
         current_file.closed
 
-
-    elif (destination=="stdout"):
-
-        print(contentstring)
-
-
-    elif (destination=="file"):
-
-        loggfile = "%s%s" % (path_maps_result,file_log_name)
-
-        current_file    = open(loggfile, 'a')
-
-        current_file.write(contentstring)
-
-        current_file.closed
-
-
-    else:
-        print ""
 
 
 
