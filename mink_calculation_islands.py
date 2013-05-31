@@ -360,6 +360,7 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Delete affected islands from islands_left
+
     to_log               +"--- Erasing infected islands from all islands"
 
     handle_log(to_log,"stdout,file",path_maps_result)
@@ -375,24 +376,11 @@ while (number_islands_left < number_islands_left_last):
 
     #remove all islands within a buffer of n meters away from the coastline
 
-
     number_islands_left_last = number_islands_left
     number_islands_left = int(str(arcpy.GetCount_management(islands_left)))
 
-    to_log               +"--- Islands left: %s" % (number_islands_left)
-
-    to_log               +"This round took: %s" % (timestamp)
-
-    handle_log(to_log,"stdout,file",path_maps_result)
-    to_log     = ""
-
     i+=1
 
-to_log               +"--"
-to_log               +"-- Iterations has ended"
-
-handle_log(to_log,"stdout,file",path_maps_result)
-to_log     = ""
 
 # union for all buffers affected
 
@@ -412,10 +400,7 @@ count=1
 
 unionlist=""
 
-to_log               +"-- Merging (union) between all buffer objects"
-
-handle_log(to_log,"stdout",path_maps_result)
-to_log     = ""
+# Merging (union) between all buffer objects
 
 while count < i:
 
@@ -432,7 +417,6 @@ while count < i:
 
 full_buffer_temp  = "%sfullbuffer_temp.shp"   % (path_maps_process)
 
-
 arcpy.Union_analysis(unionlist,full_buffer_temp)
 
 
@@ -442,13 +426,13 @@ arcpy.AddField_management(full_buffer_temp,fieldname,"LONG", 9, "", "","","NULLA
 
 count=1
 
+
 # Update is_lev_# value with 1
+
 rows = arcpy.UpdateCursor(full_buffer_temp)
 
-to_log               +"-- Adding island level (isl_lev) to the buffer based on respective buffer level values."
 
-handle_log(to_log,"stdout",path_maps_result)
-to_log     = ""
+# Adding island level (isl_lev) to the buffer based on respective buffer level values.
 
 for row in rows:
     count   =1
@@ -470,7 +454,6 @@ for row in rows:
 
 # Join islands_affected and islands_affected_total
 
-
 islands_infested     = "%sislands_in_zones.shp" % (path_maps_result)
 
 islands_affected     = "%sislands_affected.shp" % (path_maps_process)
@@ -488,6 +471,7 @@ visual_buffer        = "%sf_%s_visual_buffer.shp" % (path_maps_result,county_nr)
 
 
 # the visual buffer should be half of the total potential swimming distance
+
 distanceField        = "%s Meters" % (list_buffer_distance_m/2)
 sideType             = ""
 endType              = ""
@@ -497,8 +481,6 @@ arcpy.Buffer_analysis(islands_infested, visual_buffer_temp, distanceField, sideT
 
 
 #Disssolve
-
-#arcpy.Dissolve_management(visual_buffer_temp, visual_buffer,"","","SINGLE_PART","")
 
 group_dissolve(visual_buffer_temp, visual_buffer,80,path_maps_process)
 
@@ -561,7 +543,7 @@ for row in rows:
 
     to_log               += "   %s: %s \n" % (count, new_area/1000)
 
-    handle_log(to_log,"stdout,file",path_maps_result)
+    handle_log(to_log,"file",path_maps_result)
     to_log     = ""
 
 
@@ -590,7 +572,7 @@ to_log               +"-- Iterating for value updates"
 to_log               += "\n"
 to_log               += "\n"
 to_log               += "\n"
-to_log               += " Informasjon om øyer i de enkelte sonene\n"
+to_log               += " Information about islands in the respecctive zones\n"
 to_log               += "\n"
 
 handle_log(to_log,"stdout,file",path_maps_result)
@@ -626,33 +608,17 @@ for row in rows:
 
 
     # Calculate area for the islands within one of the buffer zones
-    to_log               +"---- Initiating zone level area stats"
-
-    handle_log(to_log,"stdout",path_maps_result)
-    to_log     = ""
 
     arcpy.CalculateAreas_stats(zone_islands_nocalc, zone_islands_areacalc)
 
 
     # Calculate perimeter for the islands within one of the buffer zones
-    to_log               +"---- Initiating izone level slands total perimeter calculation"
-
-    handle_log(to_log,"stdout",path_maps_result)
-    to_log     = ""
 
     arcpy.CalculateField_management(zone_islands_areacalc, 'i_perim', '!shape.length@meters!', 'PYTHON')
 
 
     # Calculate distance from any islands within the zone to shore for.
     # The resulting value is used as update to the
-
-    to_log               +"---- Initiating distance to shore calculation"
-
-    handle_log(to_log,"stdout,file",path_maps_result)
-    to_log     = ""
-
-    #arcpy.Near_analysis(zone_islands_areacalc,coastal_line_risk)
-
 
     to_log               +"---- Iterating through value updates with some tests"
 
