@@ -25,9 +25,6 @@ import arcpy, os
 def handle_log(contentstring,path_maps_result, file_log_name):
 
 
-        print(contentstring)
-
-
         loggfile = "%s%s" % (path_maps_result,file_log_name)
 
         current_file    = open(loggfile, 'a')
