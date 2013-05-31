@@ -6,6 +6,14 @@
 # Based on this natural clusters will be found. Their closeness to
 # the shoreline is also visualized.
 #
+# Delivered as-is. If it works - fine for you. If it fails - too bad.
+# No are given guarantees whatsoever. If you use this program for
+# illegal purposes - don't blame me.
+#
+# License type is GNU GPL. Copy, distribute and change freely. Keep
+# the author in mind for crediting. Come to think of it, use this
+# reference:
+#
 # Input:         * your_islands.shp
 #                * your_protected_areas.shp
 #                * your_projection_file.prj
