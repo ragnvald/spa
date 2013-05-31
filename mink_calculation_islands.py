@@ -58,8 +58,6 @@ list_buffer_distance_m        = 2000
 max_distancetoshore_possible  = 200000
 i                             = 1
 
-county_nr                     = 9
-
 county_name                   = "nordland"
 
 projectionfile                = "%swgs84_utm_33n.prj" % (path_maps_basis)
@@ -94,7 +92,7 @@ to_log               += "\n"
 to_log               += "\n"
 to_log               += " Buffer distance (meters) : %s \n" % (list_buffer_distance_m)
 to_log               += "\n"
-to_log               += " County                   : %s (nr: %s) \n" % (county_name, county_nr)
+to_log               += " County                   : %s  \n" % (county_name)
 to_log               += "\n"
 to_log               += " Projection               : %s\n" % (projectionfile)
 to_log                = " Islands calculation\n"
@@ -115,7 +113,7 @@ to_log     = ""
 # Information to log
 
 number_islands_tostartwith = int(str(arcpy.GetCount_management(islands_all)))
-islands_affected_total      = "%sf_%s_islands_affected_total.shp" % (path_maps_result,county_nr)
+islands_affected_total      = "%sislands_affected_total.shp" % (path_maps_result)
 
 to_log               += "\n"
 to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
@@ -125,7 +123,7 @@ handle_log(to_log,path_maps_result,log_file)
 to_log     = ""
 
 
-islands_affected_total_nopath = "f_%s_islands_affected_total.shp" % (county_nr)
+islands_affected_total_nopath = "islands_affected_total.shp"
 
 arcpy.CreateFeatureclass_management(path_maps_result, islands_affected_total_nopath, "POLYGON")
 arcpy.DefineProjection_management(islands_affected_total, projectionfile)
@@ -467,7 +465,7 @@ arcpy.DefineProjection_management(islands_infested, projectionfile)
 visual_buffer_temp   = "%svisual_buffer_temp.shp" % (path_maps_process)
 
 
-visual_buffer        = "%sf_%s_visual_buffer.shp" % (path_maps_result,county_nr)
+visual_buffer        = "%svisual_buffer.shp" % (path_maps_result)
 
 
 # the visual buffer should be half of the total potential swimming distance
@@ -702,7 +700,7 @@ del rows
 #
 # Create the coastline risk zone based on an extended buffer outside the published buffer
 #
-buffer_outer                   = "%sf_%s_visual_buffer.shp"      % (path_maps_result,county_nr)
+buffer_outer                   = "%svisual_buffer.shp"      % (path_maps_result)
 
 
 #Extend visual buffer to full buffer
@@ -718,7 +716,7 @@ arcpy.Buffer_analysis(buffer_outer, buffer_outer_extra, distanceField, sideType,
 
 #Calculate risk line
 #
-coastal_line_risk   = "%sf_%s_coastal_riskline.shp"    % (path_maps_result,county_nr)
+coastal_line_risk   = "%scoastal_riskline.shp"    % (path_maps_result)
 arcpy.Intersect_analysis([[buffer_outer_extra,1], [coastline,2]], coastal_line_risk, "ALL", "", "LINE")
 
 
