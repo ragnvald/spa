@@ -702,9 +702,6 @@ del rows
 #
 buffer_outer                   = "%svisual_buffer.shp"      % (path_maps_result)
 
-
-#Extend visual buffer to full buffer
-#
 distanceField                  = "%s Meters" % (int(list_buffer_distance_m/2))
 sideType                       = ""
 endType                        = ""
@@ -714,8 +711,7 @@ buffer_outer_extra   = "%svisual_buffer_ekstra.shp" % (path_maps_process)
 arcpy.Buffer_analysis(buffer_outer, buffer_outer_extra, distanceField, sideType, endType, dissolveType, dissolveField)
 
 
-#Calculate risk line
-#
+# Intersect between the buffer and the coastline gives us the risk zone.
 coastal_line_risk   = "%scoastal_riskline.shp"    % (path_maps_result)
 arcpy.Intersect_analysis([[buffer_outer_extra,1], [coastline,2]], coastal_line_risk, "ALL", "", "LINE")
 
@@ -725,3 +721,5 @@ run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 to_log        += "Calculations ended : %s \n" % (run_time_end)
 handle_log(to_log,path_maps_result,log_file)
+
+print "ended"
