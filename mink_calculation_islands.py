@@ -262,29 +262,12 @@ while (number_islands_left < number_islands_left_last):
     #Repair the geometries made by ESRI.
     arcpy.RepairGeometry_management(current_buffer_temp, "Keep_NULL")
 
-    #Disssolve
-    printstring          =  current_buffer_temp[80:]
-    to_log               + "--- Dissolving : [..]%s" % printstring
-
-    to_log               +"Normal DISSOLVE"
-
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
-
     group_dissolve(current_buffer_temp, current_buffer,80,path_maps_process)
 
     #arcpy.Dissolve_management(current_buffer_temp, current_buffer,"","","SINGLE_PART","")
 
     arcpy.DefineProjection_management(current_buffer, projectionfile)
 
-
-    # Clean up
-    to_log               +"--- Deleting temporary buffer file"
-
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     arcpy.Delete_management(current_buffer_temp)
 
