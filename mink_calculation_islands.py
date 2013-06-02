@@ -197,10 +197,6 @@ number_islands_left_last = 200000
 
 
 #Fortsettes så lenge det kommer nye øyer inn i beregningen, eller beregningen når land.
-to_log               +"- Entering loop for iterations"
-
-handle_log(to_log,path_maps_result,log_file)
-to_log     = ""
 
 while (number_islands_left < number_islands_left_last):
 
@@ -221,10 +217,6 @@ while (number_islands_left < number_islands_left_last):
     # Buffer around all islands
     #
     printstring                =  islands_affected[80:]
-    to_log               + "--- Buffering  : [..]%s" % printstring
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     distanceField              = "%s Meters" % (list_buffer_distance_m)
     sideType                   = ""
@@ -239,11 +231,6 @@ while (number_islands_left < number_islands_left_last):
 
         # If this is not the first buffer the older buffer is merged with the new buffer
         # This way we will get a full coverage buffer under all hitherto affected islands
-
-        to_log               +"--- Making a full size buffer and clean it up. This integrates buffer #%s" % (i)
-
-        handle_log(to_log,path_maps_result,log_file)
-        to_log     = ""
 
         formeriterator   = i-1
 
@@ -283,11 +270,6 @@ while (number_islands_left < number_islands_left_last):
         rows.updateRow(row)
 
 
-
-    to_log               +"--- Joining protected areas and islands"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     arcpy.SpatialJoin_analysis(islands_left, current_buffer, islands_affected_joined)
 
@@ -541,12 +523,6 @@ to_log     = ""
 current_id = 0
 
 for row in rows:
-
-
-    to_log               +"--- Iteration #%s" % (current_id)
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     visual_buffer_temp      = "%svisual_buffer_temp.shp" % (path_maps_process)
 
