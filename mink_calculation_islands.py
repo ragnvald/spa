@@ -296,10 +296,6 @@ while (number_islands_left < number_islands_left_last):
     ################################################################
     #Select all islands with more than one protected area status and make a new layer
     #
-    to_log               +"--- Creating a shapefile representing islands with protection status"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     islands_affected        = "%sislands_affected_%s.shp" % (path_maps_process,i)
     where_clause ='"Join_Count" > 0'
@@ -308,11 +304,6 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Clean up: Delete temporary joined file
-    to_log               +"--- Deleting temporary join file"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
-
     arcpy.Delete_management(islands_affected_joined)
 
     # add identification field to the islands affected
@@ -328,12 +319,6 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Add the new islands to the original one
-    to_log               +"--- Merging new islands into islands_affected_total"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
-
-
     arcpy.Merge_management([islands_affected_total, islands_affected], islands_affected_total_temp)
     arcpy.Delete_management(islands_affected_total)
     arcpy.Copy_management(islands_affected_total_temp, islands_affected_total)
@@ -341,12 +326,6 @@ while (number_islands_left < number_islands_left_last):
 
 
     # Delete affected islands from islands_left
-
-    to_log               +"--- Erasing infected islands from all islands"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
-
     arcpy.Erase_analysis(islands_left,islands_affected,islands_left_new)
     arcpy.Delete_management(islands_left)
     arcpy.Copy_management(islands_left_new, islands_left)
@@ -601,10 +580,6 @@ for row in rows:
     # Calculate distance from any islands within the zone to shore for.
     # The resulting value is used as update to the
 
-    to_log               +"---- Iterating through value updates with some tests"
-
-    handle_log(to_log,path_maps_result,log_file)
-    to_log     = ""
 
     #Do the area calculation and set the value for eac island selected within one of the buffers
     rows_area = arcpy.UpdateCursor(zone_islands_areacalc)
