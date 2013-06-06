@@ -17,14 +17,10 @@
     <node id="n0">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="125.5" y="383.308"/>
-=======
-          <y:Geometry height="36.0" width="142.0" x="607.0" y="325.904"/>
->>>>>>> figure update
+          <y:Geometry height="36.0" width="142.0" x="30.0" y="513.8506258398734"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="109.38671875" x="16.306640625" y="8.6494140625">islands within buffer<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="90.724609375" x="25.6376953125" y="8.6494140625">affected_islands<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -36,13 +32,29 @@
       </data>
     </node>
     <node id="n1">
+      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="40.0" y="460.808"/>
-=======
-          <y:Geometry height="36.0" width="142.0" x="501.0" y="726.2213333333333"/>
->>>>>>> figure update
+          <y:Geometry height="96.08525167974676" width="103.58483908999779" x="246.7075804550011" y="483.808"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="75.3671875" x="14.108825794998893" y="23.99086802737338">More
+islands within
+buffer<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:Shape type="diamond"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.0" width="142.0" x="65.5" y="655.8932516797468"/>
           <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="130.75" x="5.625" y="8.6494140625">unaffected_islands_tmp<y:LabelModel>
@@ -56,47 +68,13 @@
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n2">
-      <data key="d6">
-        <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="211.0" y="295.808"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="124.744140625" x="8.6279296875" y="8.6494140625">buffer affected_islands<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="501.0" y="619.7213333333333"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="126.75390625" x="7.623046875" y="1.298828125">delete affected_islands
-from all_islands<y:LabelModel>
->>>>>>> figure update
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:Shape type="rectangle"/>
-        </y:ShapeNode>
-      </data>
-    </node>
     <node id="n3">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="387.5" y="383.308"/>
+          <y:Geometry height="36.0" width="142.0" x="101.0" y="402.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="126.75390625" x="7.623046875" y="1.298828125">delete affected_islands
-from all_islands<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="607.0" y="269.904"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="86.048828125" x="27.9755859375" y="1.298828125">Choose islands
-within buffer<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="124.744140625" x="8.6279296875" y="8.6494140625">buffer affected_islands<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -110,18 +88,11 @@ within buffer<y:LabelModel>
     <node id="n4">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="125.5" y="229.808"/>
+          <y:Geometry height="36.0" width="142.0" x="30.0" y="589.8932516797468"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="86.048828125" x="27.9755859375" y="1.298828125">Choose islands
-within buffer<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="607.0" y="213.904"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="136.087890625" x="2.9560546875" y="8.6494140625">buffer around the islands<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="126.75390625" x="7.623046875" y="1.298828125">delete affected_islands
+from all_islands<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -135,18 +106,11 @@ within buffer<y:LabelModel>
     <node id="n5">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="125.5" y="173.808"/>
+          <y:Geometry height="36.0" width="142.0" x="65.5" y="336.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="136.087890625" x="2.9560546875" y="8.6494140625">buffer around the islands<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="607.0" y="157.904"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="98.060546875" x="21.9697265625" y="1.298828125">protected_islands
-(assets)<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="86.048828125" x="27.9755859375" y="1.298828125">Choose islands
+within buffer<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -160,19 +124,10 @@ within buffer<y:LabelModel>
     <node id="n6">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="56.0" width="233.0" x="387.5" y="163.808"/>
+          <y:Geometry height="36.0" width="142.0" x="65.5" y="234.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="219.443359375" x="6.7783203125" y="3.9482421875">protected_islands giving us the initial
-starting point. We consider these islands
-asset islands.<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="650.0" y="0.0"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="113.40625" x="14.296875" y="8.6494140625">protected_areas.shp<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="136.087890625" x="2.9560546875" y="8.6494140625">buffer around the islands<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -186,19 +141,11 @@ asset islands.<y:LabelModel>
     <node id="n7">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="56.903999999999996" width="142.0" x="468.5" y="0.0"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#339966" type="line" width="3.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="90.724609375" x="25.6376953125" y="19.101414062499998">protected_areas<y:LabelModel>
-=======
-          <y:Geometry height="56.903999999999996" width="142.0" x="693.0" y="715.7693333333333"/>
+          <y:Geometry height="36.0" width="142.0" x="65.5" y="178.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="106.720703125" x="17.6396484375" y="4.400242187499998">all_islands.shp
-(islands un-
-affected by buffers)<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="98.060546875" x="21.9697265625" y="1.298828125">protected_islands
+(assets)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -212,19 +159,10 @@ affected by buffers)<y:LabelModel>
     <node id="n8">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="56.903999999999996" width="142.0" x="40.0" y="0.0"/>
+          <y:Geometry height="36.0" width="142.0" x="177.0" y="10.451999999999998"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#339966" type="line" width="3.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="104.060546875" x="18.9697265625" y="4.400242187499998">all_islands
-(islands un-
-affected bubuffers)<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="15.0" y="914.4480515873015"/>
-          <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="143.41796875" x="-0.708984375" y="8.6494140625">minkeradication_zone.shp<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="90.724609375" x="25.6376953125" y="8.6494140625">protected_areas<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -238,17 +176,12 @@ affected bubuffers)<y:LabelModel>
     <node id="n9">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="586.0" y="516.808"/>
-          <y:Fill color="#99CC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="78.0390625" x="31.98046875" y="8.6494140625">minksone.shp<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="15.0" y="726.2213333333333"/>
+          <y:Geometry height="56.903999999999996" width="142.0" x="15.0" y="0.0"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="79.375" x="31.3125" y="8.6494140625">Buffer 1000 m<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="104.060546875" x="18.9697265625" y="4.400242187499998">all_islands
+(islands un-
+affected bubuffers)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -262,19 +195,10 @@ affected bubuffers)<y:LabelModel>
     <node id="n10">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="586.0" y="460.808"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
+          <y:Geometry height="36.0" width="142.0" x="227.5" y="711.8932516797468"/>
+          <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="79.375" x="31.3125" y="8.6494140625">Buffer 1000 m<y:LabelModel>
-=======
-          <y:Geometry height="56.903999999999996" width="142.0" x="650.0" y="56.0"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="81.373046875" x="30.3134765625" y="4.400242187499998">Select islands
-with protection
-(interssect)<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="78.0390625" x="31.98046875" y="8.6494140625">minksone.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -288,19 +212,10 @@ with protection
     <node id="n11">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="56.903999999999996" width="142.0" x="433.0" y="86.904"/>
+          <y:Geometry height="36.0" width="142.0" x="227.5" y="655.8932516797468"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="81.373046875" x="30.3134765625" y="4.400242187499998">Select islands
-with protection
-(interssect)<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="177.0" y="726.2213333333333"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="106.052734375" x="17.9736328125" y="8.6494140625">Buffer 2000 meters<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="79.375" x="31.3125" y="8.6494140625">Buffer 1000 m<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -314,19 +229,12 @@ with protection
     <node id="n12">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="665.25" y="295.808"/>
+          <y:Geometry height="56.903999999999996" width="142.0" x="65.5" y="101.904"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="106.052734375" x="17.9736328125" y="8.6494140625">Buffer 2000 meters<y:LabelModel>
-=======
-          <y:Geometry height="56.452" width="142.0" x="177.70912698412698" y="837.9960515873015"/>
-          <y:Fill color="#FFFF99" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="116.060546875" x="12.9697265625" y="4.174242187499999">Intersect buffer and 
-coastline resulting in 
-a coastal risk zone<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="81.373046875" x="30.3134765625" y="4.400242187499998">Select islands
+with protection
+(interssect)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -340,17 +248,10 @@ a coastal risk zone<y:LabelModel>
     <node id="n13">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="811.75" y="383.308"/>
-          <y:Fill color="#FFFF99" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="50.01953125" x="45.990234375" y="8.6494140625">Intersect<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="339.0" y="726.2213333333333"/>
+          <y:Geometry height="36.0" width="142.0" x="273.64623015873013" y="402.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="74.04296875" x="33.978515625" y="8.6494140625">coastline.shp<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="106.052734375" x="17.9736328125" y="8.6494140625">Buffer 2000 meters<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -364,17 +265,10 @@ a coastal risk zone<y:LabelModel>
     <node id="n14">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="847.25" y="295.808"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
+          <y:Geometry height="36.0" width="142.0" x="309.14623015873013" y="336.808"/>
+          <y:Fill color="#FFFF99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="51.361328125" x="45.3193359375" y="8.6494140625">coastline<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="177.70912698412698" y="914.4480515873015"/>
-          <y:Fill color="#99CC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="78.0390625" x="31.98046875" y="8.6494140625">risk_zone.shp<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="50.01953125" x="45.990234375" y="8.6494140625">Intersect<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -388,17 +282,10 @@ a coastal risk zone<y:LabelModel>
     <node id="n15">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="811.75" y="516.808"/>
-          <y:Fill color="#99CC00" transparent="false"/>
+          <y:Geometry height="36.0" width="142.0" x="309.14623015873013" y="280.808"/>
+          <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="125.412109375" x="8.2939453125" y="8.6494140625">Eksponeringssone.shp<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="501.0" y="914.4480515873015"/>
-          <y:Fill color="#99CC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="126.75390625" x="7.623046875" y="8.6494140625">unaffected_islands.shp<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="51.361328125" x="45.3193359375" y="8.6494140625">coastline<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -412,48 +299,10 @@ a coastal risk zone<y:LabelModel>
     <node id="n16">
       <data key="d6">
         <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="36.0" width="142.0" x="40.0" y="516.808"/>
+          <y:Geometry height="36.0" width="142.0" x="370.2924603174603" y="513.8506258398734"/>
           <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="104.072265625" x="18.9638671875" y="8.6494140625">unaffected_islands<y:LabelModel>
-=======
-          <y:Geometry height="100.3173333333333" width="101.28800000000001" x="627.356" y="381.904"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="66.701171875" x="17.293414062500005" y="26.106908854166647">Number of 
-new islands
-in buffer<y:LabelModel>
->>>>>>> figure update
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:Shape type="diamond"/>
-        </y:ShapeNode>
-      </data>
-    </node>
-    <node id="n17">
-      <data key="d6">
-        <y:ShapeNode>
-<<<<<<< HEAD
-          <y:Geometry height="79.0" width="175.0" x="569.5" y="361.808"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" modelName="custom" textColor="#000000" visible="true" width="164.37109375" x="5.314453125" y="0.7470703125">aggregate affected islands
-and when there are no more 
-islands being added in any
-of the zones it's time to finnish
-up<y:LabelModel>
-=======
-          <y:Geometry height="36.0" width="142.0" x="177.0" y="619.7213333333333"/>
-          <y:Fill color="#F0EFEF" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="101.388671875" x="20.3056640625" y="1.298828125">Outer ring around 
-affected islands<y:LabelModel>
->>>>>>> figure update
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="125.412109375" x="8.2939453125" y="8.6494140625">Eksponeringssone.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -464,179 +313,34 @@ affected islands<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-<<<<<<< HEAD
-    <edge id="e0" source="n0" target="n2">
+    <node id="n17">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.0" width="142.0" x="65.5" y="762.8932516797468"/>
+          <y:Fill color="#99CC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="104.072265625" x="18.9638671875" y="8.6494140625">unaffected_islands<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e0" source="n0" target="n3">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="35.5" sy="-18.0" tx="-35.5" ty="18.0">
-            <y:Point x="232.0" y="346.808"/>
-            <y:Point x="246.5" y="346.808"/>
-          </y:Path>
-=======
-    <edge id="e0" source="n9" target="n8">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
->>>>>>> figure update
+          <y:Path sx="35.5" sy="-18.0" tx="-35.5" ty="18.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e1" source="n0" target="n3">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="71.0" sy="0.0" tx="-71.0" ty="0.0"/>
-=======
-    <edge id="e1" source="n6" target="n10">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-28.451999999999998"/>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e2" source="n10" target="n9">
-=======
-    <edge id="e2" source="n7" target="n10">
->>>>>>> figure update
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-28.451999999999998" tx="35.5" ty="28.451999999999998">
-            <y:Point x="764.0" y="157.904"/>
-            <y:Point x="756.5" y="127.904"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e3" source="n7" target="n11">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="28.451999999999998" tx="35.5" ty="-28.451999999999998"/>
-=======
-    <edge id="e3" source="n5" target="n4">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e4" source="n8" target="n11">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="35.5" sy="28.451999999999998" tx="-35.5" ty="-28.451999999999998">
-            <y:Point x="146.5" y="71.904"/>
-            <y:Point x="468.5" y="71.904"/>
-          </y:Path>
-=======
-    <edge id="e4" source="n11" target="n12">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-28.226"/>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e5" source="n6" target="n5">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="-116.5" sy="0.0" tx="71.0" ty="0.0"/>
-=======
-    <edge id="e5" source="n13" target="n12">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-28.226">
-            <y:Point x="410.0" y="782.6733333333333"/>
-            <y:Point x="248.70912698412698" y="822.9960515873015"/>
-          </y:Path>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e6" source="n12" target="n13">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="35.5" sy="18.0" tx="-35.5" ty="-18.0">
-            <y:Point x="771.75" y="346.808"/>
-            <y:Point x="847.25" y="346.808"/>
-          </y:Path>
-=======
-    <edge id="e6" source="n12" target="n14">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="28.226" tx="0.0" ty="-18.0"/>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e7" source="n14" target="n13">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="35.5" ty="-18.0"/>
-=======
-    <edge id="e7" source="n4" target="n3">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e8" source="n13" target="n15">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
-=======
-    <edge id="e8" source="n10" target="n5">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="-35.5" sy="28.451999999999998" tx="0.0" ty="-18.0">
-            <y:Point x="685.5" y="122.904"/>
-            <y:Point x="678.0" y="142.904"/>
-          </y:Path>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e9" source="n5" target="n4">
-=======
-    <edge id="e9" source="n3" target="n0">
->>>>>>> figure update
+    <edge id="e1" source="n0" target="n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
@@ -646,142 +350,133 @@ affected islands<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e10" source="n11" target="n6">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="28.451999999999998" tx="0.0" ty="-28.0"/>
-=======
-    <edge id="e10" source="n1" target="n15">
+    <edge id="e2" source="n11" target="n10">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
->>>>>>> figure update
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e11" source="n4" target="n0">
-=======
-    <edge id="e11" source="n2" target="n1">
->>>>>>> figure update
+    <edge id="e3" source="n8" target="n12">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-35.5" sy="18.0" tx="-35.5" ty="-18.0"/>
+          <y:Path sx="-55.75" sy="18.0" tx="55.75" ty="-28.451999999999998"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e12" source="n2" target="n4">
+    <edge id="e4" source="n9" target="n12">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-18.0" tx="35.5" ty="18.0">
-            <y:Point x="282.0" y="280.808"/>
-            <y:Point x="232.0" y="280.808"/>
-          </y:Path>
-=======
-    <edge id="e12" source="n1" target="n7">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="71.0" sy="0.0" tx="-71.0" ty="0.0"/>
->>>>>>> figure update
+          <y:Path sx="25.25" sy="28.451999999999998" tx="-25.25" ty="-28.451999999999998"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e13" source="n1" target="n16">
+    <edge id="e5" source="n7" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
-=======
-    <edge id="e13" source="n0" target="n16">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-50.15866666666665"/>
->>>>>>> figure update
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
+    <edge id="e6" source="n1" target="n11">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="48.04262583987338" tx="0.0" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n1" target="n13">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="13.469324851864485" sy="-35.57387583987338" tx="-32.67690530686565" ty="18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="n13" target="n14">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="17.75" sy="-18.0" tx="-17.75" ty="18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="n15" target="n14">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n14" target="n16">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="56.75" sy="18.0" tx="-4.396230158730191" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="n6" target="n5">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n12" target="n7">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="28.451999999999998" tx="0.0" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="n5" target="n0">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-56.75" sy="18.0" tx="-21.25" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
     <edge id="e14" source="n3" target="n1">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="35.5" ty="-18.0">
-            <y:Point x="458.5" y="434.308"/>
-            <y:Point x="146.5" y="434.308"/>
-=======
-    <edge id="e14" source="n16" target="n2">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="50.15866666666665" tx="0.0" ty="-18.0">
-            <y:Point x="678.0" y="497.2213333333333"/>
-            <y:Point x="572.0" y="604.7213333333333"/>
->>>>>>> figure update
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="75.361328125" x="-37.6806640625" y="-5.480479410807334">More islands 
-in buffer<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-<<<<<<< HEAD
-    <edge id="e15" source="n1" target="n8">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="-35.5" sy="-18.0" tx="-35.5" ty="28.451999999999998"/>
-=======
-    <edge id="e15" source="n16" target="n17">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="50.15866666666665" tx="0.0" ty="-18.0">
-            <y:Point x="678.0" y="497.2213333333333"/>
-            <y:Point x="248.0" y="604.7213333333333"/>
-          </y:Path>
->>>>>>> figure update
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="90.701171875" x="-260.3505859375" y="52.019520589192666">No more islands
-in buffer<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="1"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e16" source="n17" target="n11">
-      <data key="d9"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="35.5" sy="18.0" tx="-43.75" ty="-39.5">
-            <y:Point x="317.5" y="346.808"/>
-            <y:Point x="613.25" y="346.808"/>
+          <y:Path sx="37.353790227500554" sy="18.0" tx="-51.79241954499889" ty="0.0">
+            <y:Point x="209.35379022750055" y="521.9511309032617"/>
+            <y:Point x="219.2532851641122" y="531.8506258398734"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
@@ -789,33 +484,47 @@ in buffer<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-<<<<<<< HEAD
-    <edge id="e17" source="n17" target="n12">
+    <edge id="e15" source="n3" target="n5">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="43.75" sy="-39.5" tx="-35.5" ty="18.0"/>
+          <y:Path sx="-17.75" sy="-18.0" tx="17.75" ty="18.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="n17" target="n10">
+    <edge id="e16" source="n2" target="n17">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="39.5" tx="0.0" ty="-18.0"/>
-=======
-    <edge id="e17" source="n17" target="n9">
+          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="n4" target="n2">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0">
-            <y:Point x="248.0" y="670.7213333333333"/>
-            <y:Point x="86.0" y="711.2213333333333"/>
+          <y:Path sx="17.75" sy="18.0" tx="-17.75" ty="-18.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="n2" target="n9">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-71.0" sy="0.0" tx="-67.0" ty="28.451999999999998">
+            <y:Point x="31.72792206135786" y="673.8932516797468"/>
+            <y:Point x="19.0" y="661.1653296183889"/>
           </y:Path>
->>>>>>> figure update
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
