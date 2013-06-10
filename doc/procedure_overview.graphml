@@ -32,7 +32,6 @@
       </data>
     </node>
     <node id="n1">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="96.08525167974676" width="103.58483908999779" x="246.7075804550011" y="483.808"/>
@@ -162,7 +161,7 @@ within buffer<y:LabelModel>
           <y:Geometry height="36.0" width="142.0" x="177.0" y="10.451999999999998"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="90.724609375" x="25.6376953125" y="8.6494140625">protected_areas<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="113.40625" x="14.296875" y="8.6494140625">protected_areas.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -179,7 +178,7 @@ within buffer<y:LabelModel>
           <y:Geometry height="56.903999999999996" width="142.0" x="15.0" y="0.0"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="104.060546875" x="18.9697265625" y="4.400242187499998">all_islands
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="104.060546875" x="18.9697265625" y="4.400242187499998">all_islands.shp
 (islands un-
 affected bubuffers)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -285,7 +284,7 @@ with protection
           <y:Geometry height="36.0" width="142.0" x="309.14623015873013" y="280.808"/>
           <y:Fill color="#F0EFEF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="51.361328125" x="45.3193359375" y="8.6494140625">coastline<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="74.04296875" x="33.978515625" y="8.6494140625">coastline.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -302,7 +301,7 @@ with protection
           <y:Geometry height="36.0" width="142.0" x="370.2924603174603" y="513.8506258398734"/>
           <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="125.412109375" x="8.2939453125" y="8.6494140625">Eksponeringssone.shp<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="108.7421875" x="16.62890625" y="8.6494140625">exposure_zone.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -319,7 +318,7 @@ with protection
           <y:Geometry height="36.0" width="142.0" x="65.5" y="762.8932516797468"/>
           <y:Fill color="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="104.072265625" x="18.9638671875" y="8.6494140625">unaffected_islands<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="126.75390625" x="7.623046875" y="8.6494140625">unaffected_islands.shp<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -471,7 +470,6 @@ with protection
       </data>
     </edge>
     <edge id="e14" source="n3" target="n1">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="37.353790227500554" sy="18.0" tx="-51.79241954499889" ty="0.0">
@@ -485,7 +483,6 @@ with protection
       </data>
     </edge>
     <edge id="e15" source="n3" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-17.75" sy="-18.0" tx="17.75" ty="18.0"/>
@@ -496,7 +493,6 @@ with protection
       </data>
     </edge>
     <edge id="e16" source="n2" target="n17">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="18.0" tx="0.0" ty="-18.0"/>
@@ -507,7 +503,6 @@ with protection
       </data>
     </edge>
     <edge id="e17" source="n4" target="n2">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="17.75" sy="18.0" tx="-17.75" ty="-18.0"/>
@@ -518,7 +513,6 @@ with protection
       </data>
     </edge>
     <edge id="e18" source="n2" target="n9">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-71.0" sy="0.0" tx="-67.0" ty="28.451999999999998">
