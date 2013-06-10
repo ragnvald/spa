@@ -1,3 +1,4 @@
+
 # ---------------------------------------------------------------------------
 # mink_calculation_islands.py
 #
@@ -94,9 +95,6 @@ to_log               += "\n"
 to_log               += " County                   : %s  \n" % (county_name)
 to_log               += "\n"
 to_log               += " Projection               : %s\n" % (file_projection)
-to_log               += " Islands calculation\n"
-to_log               += " \n"
-to_log               += " Calculation started\n"
 to_log               += "\n"
 to_log               += " Coastline: %s\n" % (file_coastline)
 to_log               += "\n"
@@ -116,7 +114,7 @@ islands_affected_total      = "%sislands_affected_total.shp" % (path_result)
 
 to_log               += "\n"
 to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
-to_log               += "- Touch islands_affected_total_temp\n"
+to_log               += "\n"
 
 handle_log(to_log,path_result,log_file)
 to_log     = ""
