@@ -80,7 +80,7 @@ run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
 to_log               += "Calculation of zones suitable for decimation of american mink\n"
 to_log               += "#############################################################\n\n\n"
-to_log               += "Calculation started   : %s \n\n\n" % (run_time_start)
+to_log               += " Calculation started   : %s \n\n\n" % (run_time_start)
 to_log               += "\n"
 to_log               += "\n"
 to_log               += " Basis for this calculation:\n"
@@ -99,6 +99,7 @@ to_log               += "\n"
 to_log               += " Coastline: %s\n" % (file_coastline)
 to_log               += "\n"
 to_log               += " Islands file: %s\n" % (file_islandsall)
+to_log               += "\n"
 
 handle_log(to_log,path_result,log_file)
 to_log     = ""
@@ -112,7 +113,6 @@ to_log     = ""
 number_islands_tostartwith = int(str(arcpy.GetCount_management(file_islandsall)))
 islands_affected_total      = "%sislands_affected_total.shp" % (path_result)
 
-to_log               += "\n"
 to_log               += " Number of islands in this calculation: %s\n" % (number_islands_tostartwith)
 to_log               += "\n"
 
@@ -462,7 +462,6 @@ rows = arcpy.UpdateCursor(visual_buffer)
 
 # Move current area from F_AREA (don't like capitals) to z_area and delete former.
 # Also set the zone number.
-to_log               +"-- Updating values."
 
 to_log               += " Area information per zone (da)\n"
 
@@ -479,7 +478,6 @@ for row in rows:
     row.setValue("z_nr",count)
 
     rows.updateRow(row)
-
 
     to_log               += "   %s: %s \n" % (count, new_area/1000)
 
@@ -505,9 +503,6 @@ del row
 
 # Update is_lev_# value with 1
 rows = arcpy.UpdateCursor(visual_buffer)
-
-to_log               +"-- Iterating for value updates"
-
 
 to_log               += "\n"
 to_log               += "\n"
@@ -619,7 +614,6 @@ for row in rows:
     arcpy.Delete_management(zone_islands_areacalc)
     arcpy.Delete_management(visual_buffer_temp)
     arcpy.Delete_management(zone_islands_nocalc)
-
 
     current_id +=1
 
