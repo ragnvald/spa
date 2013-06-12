@@ -61,12 +61,12 @@ list_buffer_distance_m        = 2000
 max_distancetoshore_possible  = 200000
 i                             = 1
 
-county_name                   = "nordland"
+area_name                     = "nordland"
 
 file_projection               = "%swgs84_utm_33n.prj" % (path_basis)
-file_coastline                = "%snorway_coastline.shp" % (path_basis)
-file_islandsall               = "%sislands_nordland_county_s.shp" % (path_basis)
-file_areasprotected           = "%sprotected_areas_s.shp" % (path_basis)
+file_coastline                = "%scoastline.shp" % (path_basis)
+file_islandsall               = "%sislands.shp" % (path_basis)
+file_areasprotected           = "%sareasprotected.shp" % (path_basis)
 
 run_time_start                = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 
@@ -92,7 +92,7 @@ to_log               += "\n"
 to_log               += "\n"
 to_log               += " Buffer distance (meters) : %s \n" % (list_buffer_distance_m)
 to_log               += "\n"
-to_log               += " County                   : %s  \n" % (county_name)
+to_log               += " Areaname                 : %s  \n" % (area_name)
 to_log               += "\n"
 to_log               += " Projection               : %s\n" % (file_projection)
 to_log               += "\n"
