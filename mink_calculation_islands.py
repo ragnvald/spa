@@ -438,9 +438,6 @@ arcpy.DefineProjection_management(eradication_zone, file_projection)
 # - index number
 arcpy.AddField_management(eradication_zone, "z_nr",     "LONG",  "9",  "", "", "z_nr",      "NULLABLE", "REQUIRED")
 
-# - name field
-arcpy.AddField_management(eradication_zone, "sonenavn", "TEXT",  "10", "", "", "sonenavn",  "NULLABLE", "REQUIRED")
-
 # - Zone area (area covered by this zone
 arcpy.AddField_management(eradication_zone, "z_area",   "FLOAT", "12", "", "", "z_area",    "NULLABLE", "REQUIRED")
 
