@@ -404,10 +404,10 @@ arcpy.DefineProjection_management(islands_infested, file_projection)
 
 
 #buffer around all islands
-visual_buffer_temp   = "%svisual_buffer_temp.shp" % (path_process)
+eradication_zone_temp   = "%seradication_zone_temp.shp" % (path_process)
 
 
-visual_buffer        = "%svisual_buffer.shp" % (path_result)
+eradication_zone        = "%seradication_zone.shp" % (path_result)
 
 
 # the visual buffer should be half of the total potential swimming distance
@@ -417,47 +417,47 @@ sideType             = ""
 endType              = ""
 dissolveType         = "NONE"
 dissolveField        = ""
-arcpy.Buffer_analysis(islands_infested, visual_buffer_temp, distanceField, sideType, endType, dissolveType, dissolveField)
+arcpy.Buffer_analysis(islands_infested, eradication_zone_temp, distanceField, sideType, endType, dissolveType, dissolveField)
 
 
 #Disssolve
 
-group_dissolve(visual_buffer_temp, visual_buffer,80,path_process)
+group_dissolve(eradication_zone_temp, eradication_zone,80,path_process)
 
 
 # Calculate area for the visual buffer and clean up
-arcpy.Delete_management(visual_buffer_temp)
-arcpy.CalculateAreas_stats(visual_buffer, visual_buffer_temp)
-arcpy.Delete_management(visual_buffer)
-arcpy.Copy_management(visual_buffer_temp, visual_buffer)
-arcpy.Delete_management(visual_buffer_temp)
-arcpy.DefineProjection_management(visual_buffer, file_projection)
+arcpy.Delete_management(eradication_zone_temp)
+arcpy.CalculateAreas_stats(eradication_zone, eradication_zone_temp)
+arcpy.Delete_management(eradication_zone)
+arcpy.Copy_management(eradication_zone_temp, eradication_zone)
+arcpy.Delete_management(eradication_zone_temp)
+arcpy.DefineProjection_management(eradication_zone, file_projection)
 
 
 # Add some fields for the visual buffer:
 # - index number
-arcpy.AddField_management(visual_buffer, "z_nr",     "LONG",  "9",  "", "", "z_nr",      "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "z_nr",     "LONG",  "9",  "", "", "z_nr",      "NULLABLE", "REQUIRED")
 
 # - name field
-arcpy.AddField_management(visual_buffer, "sonenavn", "TEXT",  "10", "", "", "sonenavn",  "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "sonenavn", "TEXT",  "10", "", "", "sonenavn",  "NULLABLE", "REQUIRED")
 
 # - Zone area (area covered by this zone
-arcpy.AddField_management(visual_buffer, "z_area",   "FLOAT", "12", "", "", "z_area",    "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "z_area",   "FLOAT", "12", "", "", "z_area",    "NULLABLE", "REQUIRED")
 
 # - Total islands in zone
-arcpy.AddField_management(visual_buffer, "z_islnr",  "FLOAT", "12", "", "", "z_islnr",   "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "z_islnr",  "FLOAT", "12", "", "", "z_islnr",   "NULLABLE", "REQUIRED")
 
 # - Total island area
-arcpy.AddField_management(visual_buffer, "i_area",   "FLOAT", "12", "", "", "i_area",    "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "i_area",   "FLOAT", "12", "", "", "i_area",    "NULLABLE", "REQUIRED")
 
 # - Total islands
-arcpy.AddField_management(visual_buffer, "i_perim",  "FLOAT", "12", "", "", "i_perim",   "NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "i_perim",  "FLOAT", "12", "", "", "i_perim",   "NULLABLE", "REQUIRED")
 
 #A - Add field for distance to shore
-arcpy.AddField_management(visual_buffer, "i_mindist",   "LONG", "12", "", "", "isl_land_d","NULLABLE", "REQUIRED")
+arcpy.AddField_management(eradication_zone, "i_mindist",   "LONG", "12", "", "", "isl_land_d","NULLABLE", "REQUIRED")
 
 # Update is_lev_# value with 1
-rows = arcpy.UpdateCursor(visual_buffer)
+rows = arcpy.UpdateCursor(eradication_zone)
 
 
 # Move current area from F_AREA (don't like capitals) to z_area and delete former.
@@ -488,7 +488,7 @@ for row in rows:
     count+=1
 
 
-arcpy.DeleteField_management(visual_buffer, "F_AREA")
+arcpy.DeleteField_management(eradication_zone, "F_AREA")
 
 del rows
 del row
@@ -502,7 +502,7 @@ del row
 
 
 # Update is_lev_# value with 1
-rows = arcpy.UpdateCursor(visual_buffer)
+rows = arcpy.UpdateCursor(eradication_zone)
 
 to_log               += "\n"
 to_log               += "\n"
@@ -517,7 +517,7 @@ current_id = 0
 
 for row in rows:
 
-    visual_buffer_temp      = "%svisual_buffer_temp.shp" % (path_process)
+    eradication_zone_temp      = "%seradication_zone_temp.shp" % (path_process)
 
     zone_islands_nocalc     = "%szone_islands_nocalc.shp" % (path_process)
 
@@ -528,11 +528,11 @@ for row in rows:
     evaluationstring        = "\"FID\" = %s" % (current_id)
 
 
-    arcpy.Select_analysis(visual_buffer, visual_buffer_temp, evaluationstring)
+    arcpy.Select_analysis(eradication_zone, eradication_zone_temp, evaluationstring)
 
 
     # intersect temporary buffer with one islands
-    arcpy.Intersect_analysis ([[file_islandsall, 1], [visual_buffer_temp,2]], zone_islands_nocalc, "ALL", "", "")
+    arcpy.Intersect_analysis ([[file_islandsall, 1], [eradication_zone_temp,2]], zone_islands_nocalc, "ALL", "", "")
     arcpy.DefineProjection_management(zone_islands_nocalc, file_projection)
 
 
@@ -590,9 +590,9 @@ for row in rows:
 
     to_log               += " %s \n" % (current_id+1)
     to_log               += "    Number of islands     : %s \n" % (count_islands)
-    to_log               += "    Islands area  (da)    : %s \n" % (int(totalarea/1000))
-    to_log               += "    Islands perimeter (m  : %s \n" % (int(totalperim))
-    to_log               += "    Closest mainlanddet   : %s \n\n\n" % (mindistance)
+    to_log               += "    Islands area     (da) : %s \n" % (int(totalarea/1000))
+    to_log               += "    Islands perimeter (m) : %s \n" % (int(totalperim))
+    to_log               += "    Closest mainland  (m) : %s \n\n\n" % (mindistance)
 
     handle_log(to_log,path_result,log_file)
     to_log     = ""
@@ -612,7 +612,7 @@ for row in rows:
 
     # clean up
     arcpy.Delete_management(zone_islands_areacalc)
-    arcpy.Delete_management(visual_buffer_temp)
+    arcpy.Delete_management(eradication_zone_temp)
     arcpy.Delete_management(zone_islands_nocalc)
 
     current_id +=1
@@ -626,14 +626,14 @@ del rows
 #
 # Create the coastline risk zone based on an extended buffer outside the published buffer
 #
-buffer_outer                   = "%svisual_buffer.shp"      % (path_result)
+buffer_outer                   = "%seradication_zone.shp"      % (path_result)
 
-distanceField                  = "%s Meters" % (int(list_buffer_distance_m/2))
+distanceField                  = "%s meters" % (int(list_buffer_distance_m/2))
 sideType                       = ""
 endType                        = ""
 dissolveType                   = "NONE"
 dissolveField                  = ""
-buffer_outer_extra   = "%svisual_buffer_ekstra.shp" % (path_process)
+buffer_outer_extra   = "%seradication_zone_ekstra.shp" % (path_process)
 arcpy.Buffer_analysis(buffer_outer, buffer_outer_extra, distanceField, sideType, endType, dissolveType, dissolveField)
 
 
@@ -648,4 +648,4 @@ run_time_end    = strftime("%d/%m/%Y  %H:%M:%S", localtime())
 to_log        += "Calculations ended : %s \n" % (run_time_end)
 handle_log(to_log,path_result,log_file)
 
-print "ended"
+print "Calculation concluded"
