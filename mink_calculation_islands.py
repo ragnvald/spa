@@ -450,9 +450,6 @@ arcpy.AddField_management(eradication_zone, "i_area",   "FLOAT", "12", "", "", "
 # - Total islands
 arcpy.AddField_management(eradication_zone, "i_perim",  "FLOAT", "12", "", "", "i_perim",   "NULLABLE", "REQUIRED")
 
-#A - Add field for distance to shore
-arcpy.AddField_management(eradication_zone, "i_mindist",   "LONG", "12", "", "", "isl_land_d","NULLABLE", "REQUIRED")
-
 # Update is_lev_# value with 1
 rows = arcpy.UpdateCursor(eradication_zone)
 
@@ -568,12 +565,6 @@ for row in rows:
 
         current_distance  = 0
 
-        #int(row_area.getValue("NEAR_DIST"))
-
-        if (current_distance < mindistance):
-            mindistance = current_distance
-
-
         count_islands +=1
 
     row.setValue("i_area",(totalarea/1000))
@@ -581,8 +572,6 @@ for row in rows:
     row.setValue("i_perim",totalperim)
 
     row.setValue("z_islnr",count_islands)
-
-    row.setValue("i_mindist",mindistance)
 
 
     to_log               += " %s \n" % (current_id+1)
@@ -594,14 +583,7 @@ for row in rows:
     handle_log(to_log,path_result,log_file)
     to_log     = ""
 
-
-
     rows.updateRow(row)
-
-    to_log               +"--- Calculated @#%s: Islands %s, Perim %s, distance to shore %s" % (current_id, count_islands, totalperim, current_distance)
-
-    handle_log(to_log,path_result,log_file)
-    to_log     = ""
 
 
     del row_area
