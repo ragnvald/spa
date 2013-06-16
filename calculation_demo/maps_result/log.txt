@@ -1,0 +1,148 @@
+Calculation of zones suitable for decimation of american mink
+#############################################################
+
+
+ Calculation started   : 16/06/2013  00:56:58 
+
+
+
+
+ Basis for this calculation:
+
+
+
+ Responsible              : Ragnvald Larsen
+
+ Buffer distance (meters) : 2000 
+
+ Areaname                 : nordland  
+
+ Projection               : C:/mink/maps_basis/wgs84_utm_33n.prj
+
+ Coastline: C:/mink/maps_basis/coastline.shp
+
+ Islands file: C:/mink/maps_basis/islands.shp
+
+ Number of islands in this calculation: 9512
+
+ Number of islands not in any of the eradication zones are: 2018
+
+ Area information per zone (da)
+   1: 43250 
+   2: 80612 
+   3: 99977 
+   4: 25639 
+   5: 9298 
+   6: 1004006 
+   7: 3674 
+   8: 23041 
+   9: 9043 
+   10: 39665 
+   11: 432629 
+   12: 66823 
+   13: 80257 
+   14: 213230 
+
+
+
+ Information about islands in the respecctive zones
+
+ 1 
+    Number of islands     : 259 
+    Islands area     (da) : 3782 
+    Islands perimeter (m) : 97407 
+    Closest mainland  (m) : 10000000 
+
+
+ 2 
+    Number of islands     : 45 
+    Islands area     (da) : 34368 
+    Islands perimeter (m) : 42902 
+    Closest mainland  (m) : 10000000 
+
+
+ 3 
+    Number of islands     : 117 
+    Islands area     (da) : 50252 
+    Islands perimeter (m) : 100126 
+    Closest mainland  (m) : 10000000 
+
+
+ 4 
+    Number of islands     : 37 
+    Islands area     (da) : 89 
+    Islands perimeter (m) : 3972 
+    Closest mainland  (m) : 10000000 
+
+
+ 5 
+    Number of islands     : 9 
+    Islands area     (da) : 264 
+    Islands perimeter (m) : 6403 
+    Closest mainland  (m) : 10000000 
+
+
+ 6 
+    Number of islands     : 4637 
+    Islands area     (da) : 202515 
+    Islands perimeter (m) : 2076215 
+    Closest mainland  (m) : 10000000 
+
+
+ 7 
+    Number of islands     : 3 
+    Islands area     (da) : 12 
+    Islands perimeter (m) : 666 
+    Closest mainland  (m) : 10000000 
+
+
+ 8 
+    Number of islands     : 45 
+    Islands area     (da) : 830 
+    Islands perimeter (m) : 21317 
+    Closest mainland  (m) : 10000000 
+
+
+ 9 
+    Number of islands     : 9 
+    Islands area     (da) : 34 
+    Islands perimeter (m) : 2201 
+    Closest mainland  (m) : 10000000 
+
+
+ 10 
+    Number of islands     : 80 
+    Islands area     (da) : 960 
+    Islands perimeter (m) : 29350 
+    Closest mainland  (m) : 10000000 
+
+
+ 11 
+    Number of islands     : 1380 
+    Islands area     (da) : 83082 
+    Islands perimeter (m) : 589661 
+    Closest mainland  (m) : 10000000 
+
+
+ 12 
+    Number of islands     : 318 
+    Islands area     (da) : 10066 
+    Islands perimeter (m) : 144219 
+    Closest mainland  (m) : 10000000 
+
+
+ 13 
+    Number of islands     : 443 
+    Islands area     (da) : 17187 
+    Islands perimeter (m) : 158205 
+    Closest mainland  (m) : 10000000 
+
+
+ 14 
+    Number of islands     : 112 
+    Islands area     (da) : 103096 
+    Islands perimeter (m) : 123786 
+    Closest mainland  (m) : 10000000 
+
+
+Calculations ended : 16/06/2013  01:02:40 
