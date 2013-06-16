@@ -46,9 +46,10 @@ from mink_lib import *
 
 startTime = datetime.now()
 
-person_responsible            = "Ragnvald Larsen"
+person_responsible            = "CK"
 
-path_project                  = "C:/mink/"
+#Add your own path here
+path_project                  = "C:/Users/RAGLAR/Desktop/GitHub/spa/calculation_demo/"
 
 path_basis                    = "%smaps_basis/"   % (path_project)
 path_process                  = "%smaps_process/" % (path_project)
