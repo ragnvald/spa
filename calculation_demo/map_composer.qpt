@@ -1,0 +1,153 @@
+<Composer title="Composer 1" visible="1">
+ <Composition printResolution="600" paperWidth="297" snapGridOffsetX="0" snapGridResolution="0" snapGridOffsetY="0" snapping="0" numPages="1" paperHeight="210" printAsRaster="1">
+  <ComposerAttributeTable contentFont="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" gridStrokeWidth="0.5" gridColorGreen="0" maxFeatures="7" composerMap="0" showGrid="1" headerFont="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" gridColorBlue="0" lineTextDist="1" gridColorRed="0" showOnlyVisibleFeatures="1" vectorLayer="visual_buffer20130612140559362">
+   <displayAttributes/>
+   <attributeAliasMap/>
+   <sortColumns/>
+   <ComposerItem width="61.5" x="11.5616" y="158.105" rotation="0" height="43.7" frame="false" outlineWidth="0.3" zValue="6" lastValidViewScaleFactor="3.45972" id="" positionLock="false">
+    <FrameColor alpha="255" red="0" blue="0" green="0"/>
+    <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
+   </ComposerItem>
+  </ComposerAttributeTable>
+  <ComposerScaleBar segmentMillimeters="21.0532" numMapUnitsPerScaleBarUnit="1000" numSegments="4" height="3" alignment="0" labelBarSpace="3" outlineWidth="1" units="1" numSegmentsLeft="2" style="Single Box" unitLabel="km" font="MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" mapId="0" boxContentSpace="1" numUnitsPerSegment="28000">
+   <BrushColor red="0" blue="0" green="0"/>
+   <ComposerItem width="121.266" x="181.229" y="191.056" rotation="0" height="12.2" frame="false" outlineWidth="0.3" zValue="5" lastValidViewScaleFactor="3.45972" id="" positionLock="false">
+    <FrameColor alpha="255" red="0" blue="0" green="0"/>
+    <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
+   </ComposerItem>
+  </ComposerScaleBar>
+  <ComposerLegend symbolWidth="7" title="Legend" boxSpace="2" titleFont="MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" map="0" groupFont="MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" layerFont="MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" groupSpace="2" symbolSpace="2" symbolHeight="4" layerSpace="2" iconLabelSpace="2" wrapChar="" itemFont="MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" columnCount="1">
+   <Model autoUpdate="1">
+    <LayerItem layerId="visual_buffer20130612140559362" text="Eradication zones" showFeatureCount="0">
+     <VectorClassificationItemNg text="">
+      <symbols>
+       <symbol outputUnit="MM" alpha="1" type="fill" name="classificationSymbol">
+        <layer pass="0" class="SimpleFill" locked="0">
+         <prop k="color" v="222,74,10,255"/>
+         <prop k="color_border" v="255,0,0,255"/>
+         <prop k="offset" v="0,0"/>
+         <prop k="style" v="dense6"/>
+         <prop k="style_border" v="solid"/>
+         <prop k="width_border" v="0.1"/>
+        </layer>
+       </symbol>
+      </symbols>
+     </VectorClassificationItemNg>
+    </LayerItem>
+    <LayerItem layerId="coastal_riskline20130612140559324" text="Coastal risk line" showFeatureCount="0">
+     <VectorClassificationItemNg text="">
+      <symbols>
+       <symbol outputUnit="MM" alpha="1" type="line" name="classificationSymbol">
+        <layer pass="0" class="SimpleLine" locked="0">
+         <prop k="capstyle" v="square"/>
+         <prop k="color" v="255,170,0,255"/>
+         <prop k="customdash" v="5;2"/>
+         <prop k="joinstyle" v="bevel"/>
+         <prop k="offset" v="0"/>
+         <prop k="penstyle" v="solid"/>
+         <prop k="use_custom_dash" v="0"/>
+         <prop k="width" v="1.46"/>
+        </layer>
+        <layer pass="0" class="SimpleLine" locked="0">
+         <prop k="capstyle" v="square"/>
+         <prop k="color" v="255,0,0,255"/>
+         <prop k="customdash" v="5;2"/>
+         <prop k="joinstyle" v="round"/>
+         <prop k="offset" v="0"/>
+         <prop k="penstyle" v="solid"/>
+         <prop k="use_custom_dash" v="0"/>
+         <prop k="width" v="0.86"/>
+        </layer>
+       </symbol>
+      </symbols>
+     </VectorClassificationItemNg>
+    </LayerItem>
+    <LayerItem layerId="coastline20130612131648954" text="Coastal risk line" showFeatureCount="0">
+     <VectorClassificationItemNg text="">
+      <symbols>
+       <symbol outputUnit="MM" alpha="1" type="line" name="classificationSymbol">
+        <layer pass="0" class="SimpleLine" locked="0">
+         <prop k="capstyle" v="square"/>
+         <prop k="color" v="170,85,0,255"/>
+         <prop k="customdash" v="5;2"/>
+         <prop k="joinstyle" v="bevel"/>
+         <prop k="offset" v="0"/>
+         <prop k="penstyle" v="solid"/>
+         <prop k="use_custom_dash" v="0"/>
+         <prop k="width" v="0.26"/>
+        </layer>
+       </symbol>
+      </symbols>
+     </VectorClassificationItemNg>
+    </LayerItem>
+    <LayerItem layerId="areasprotected20130612131654722" text="Protected areas" showFeatureCount="0">
+     <VectorClassificationItemNg text="">
+      <symbols>
+       <symbol outputUnit="MM" alpha="1" type="fill" name="classificationSymbol">
+        <layer pass="0" class="SimpleFill" locked="0">
+         <prop k="color" v="170,255,127,255"/>
+         <prop k="color_border" v="85,170,0,255"/>
+         <prop k="offset" v="0,0"/>
+         <prop k="style" v="diagonal_x"/>
+         <prop k="style_border" v="solid"/>
+         <prop k="width_border" v="0.26"/>
+        </layer>
+       </symbol>
+      </symbols>
+     </VectorClassificationItemNg>
+    </LayerItem>
+    <LayerItem layerId="islands_in_zones20130612153653491" text="Islands in eradication zones" showFeatureCount="0">
+     <VectorClassificationItemNg text="">
+      <symbols>
+       <symbol outputUnit="MM" alpha="1" type="fill" name="classificationSymbol">
+        <layer pass="0" class="SimpleFill" locked="0">
+         <prop k="color" v="245,100,81,255"/>
+         <prop k="color_border" v="0,0,0,255"/>
+         <prop k="offset" v="0,0"/>
+         <prop k="style" v="solid"/>
+         <prop k="style_border" v="no"/>
+         <prop k="width_border" v="0.26"/>
+        </layer>
+       </symbol>
+      </symbols>
+     </VectorClassificationItemNg>
+    </LayerItem>
+   </Model>
+   <ComposerItem width="55" x="17.0534" y="33.8178" rotation="0" height="101.3" frame="true" outlineWidth="0.3" zValue="3" lastValidViewScaleFactor="2.29858" id="" positionLock="true">
+    <FrameColor alpha="255" red="201" blue="194" green="246"/>
+    <BackgroundColor alpha="255" red="241" blue="241" green="241"/>
+   </ComposerItem>
+  </ComposerLegend>
+  <ComposerMap keepLayerSet="false" overviewFrameMap="-1" id="0" previewMode="Cache" drawCanvasItems="true">
+   <overviewFrame overviewFrameMap="-1">
+    <symbol outputUnit="MM" alpha="0.3" type="fill" name="">
+     <layer pass="0" class="SimpleFill" locked="0">
+      <prop k="color" v="255,0,0,125"/>
+      <prop k="color_border" v="0,0,0,255"/>
+      <prop k="offset" v="0,0"/>
+      <prop k="style" v="solid"/>
+      <prop k="style_border" v="no"/>
+      <prop k="width_border" v="0.26"/>
+     </layer>
+    </symbol>
+   </overviewFrame>
+   <Extent ymin="7.27134e+06" xmin="323549" ymax="7.53074e+06" xmax="566425"/>
+   <LayerSet/>
+   <Grid gridStyle="0" crossLength="3" penColorRed="0" penColorBlue="0" intervalX="0" offsetX="0" intervalY="0" offsetY="0" gridFrameStyle="0" gridFrameWidth="2" show="0" penWidth="0" penColorGreen="0">
+    <Annotation rightDirection="0" bottomDirection="0" format="0" topPosition="1" precision="3" leftDirection="0" rightPosition="1" bottomPosition="1" frameDistance="1" show="0" font="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" leftPosition="1" topDirection="0"/>
+   </Grid>
+   <ComposerItem width="182.674" x="108.968" y="10.5485" rotation="0" height="195.103" frame="true" outlineWidth="0.3" zValue="1" lastValidViewScaleFactor="2.29858" id="" positionLock="false">
+    <FrameColor alpha="255" red="0" blue="0" green="0"/>
+    <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
+   </ComposerItem>
+  </ComposerMap>
+  <ComposerHtml resizeMode="0" url="">
+   <ComposerFrame sectionWidth="0" sectionHeight="0" sectionX="0" sectionY="0">
+    <ComposerItem width="0" x="169.378" y="113.593" rotation="0" height="0" frame="false" outlineWidth="0.3" zValue="4" lastValidViewScaleFactor="2.29858" id="" positionLock="false">
+     <FrameColor alpha="255" red="0" blue="0" green="0"/>
+     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
+    </ComposerItem>
+   </ComposerFrame>
+  </ComposerHtml>
+ </Composition>
+</Composer>
