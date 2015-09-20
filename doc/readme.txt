@@ -10,8 +10,7 @@ The Species Proliferation Analysis (SPA) will help you do the desktop part of th
 
 The following blog posting will go in depth on this issue:
 
-http://www.mindland.com/wp/?p=1297
+http://www.mindland.com/wp/american-mink-alien-species-proliferation-analysis/
 
-(not yet published)
 
 
